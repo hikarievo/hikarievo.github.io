@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://hikarievo.me/2016/05/21/20160521-detailed-introduction-of-background-properties/index.html">
 <meta property="og:site_name" content="喵窝">
 <meta property="og:description" content="background 属性是CSS中用于设置元素背景的属性，最简单的background属性名，是针对背景若干设定的合并简写，最早的CSS只能使用单一背景图片，而在现在却可以设置多个背景图片。而不用图片的话，最早的background只能使用纯色填充，现在却可以使用各种渐变效果。现在所用的模型来自于CSS Backgrounds and Borders Module Level 3所定义的规范，主">
-<meta property="og:updated_time" content="2016-06-04T07:07:48.358Z">
+<meta property="og:updated_time" content="2016-06-04T08:34:44.359Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS background 属性使用手册">
 <meta name="twitter:description" content="background 属性是CSS中用于设置元素背景的属性，最简单的background属性名，是针对背景若干设定的合并简写，最早的CSS只能使用单一背景图片，而在现在却可以设置多个背景图片。而不用图片的话，最早的background只能使用纯色填充，现在却可以使用各种渐变效果。现在所用的模型来自于CSS Backgrounds and Borders Module Level 3所定义的规范，主">
@@ -110,20 +110,20 @@ ga('send', 'pageview');
 <p><strong>线性渐变</strong>：<code>linear-gradient(&lt;angle&gt;, &lt;start&gt;[, &lt;stop&gt;]+);</code></p>
 </blockquote>
 <ul>
-<li><angle> 可以选择 to top、to bottom、to left、to right这4个关键字和 *deg 设置， 0deg（↓）就相当于 to bottom， 90deg（←） 相当于 to left，以此类推。</angle></li>
-<li><start>，<stop></stop> 的值则为<code>&lt;color&gt;[ &lt;position&gt;]?</code>，第一个和最后一个颜色不用写<position>，中间的颜色如果不写的话，所有的颜色就会平均分布。</position></start></li>
+<li>&lt;angle&gt; 可以选择 to top、to bottom、to left、to right这4个关键字和 *deg 设置， 0deg（↓）就相当于 to bottom， 90deg（←） 相当于 to left，以此类推。</li>
+<li>&lt;start&gt;，<stop></stop> 的值则为<code>&lt;color&gt;[ &lt;position&gt;]?</code>，第一个和最后一个颜色不用写<position>，中间的颜色如果不写的话，所有的颜色就会平均分布。</position></li>
 </ul>
 <blockquote>
 <p><strong>径向渐变</strong>：<br><code>radial-gradient([ [ &lt;shape&gt; || &lt;size&gt; ] [ at &lt;position&gt; ]? , | at &lt;position&gt;, ]? &lt;color-stop&gt; [ , &lt;color-stop&gt; ]+)</code></p>
 </blockquote>
 <p>我本想把这个语法简写一下的…减来简去发现还是这么写就好了（毕竟人家规范就是这么写的，果然深思熟虑过）…从后往前说</p>
 <ul>
-<li><color-stop> 和线性渐变一样，<code>&lt;color&gt;[ &lt;position&gt;]?</code>，也可以设定多个颜色值，而不写位置的话，就按照<size>规定的值平均分布。</size></color-stop></li>
+<li>&lt;color-stop&gt; 和线性渐变一样，<code>&lt;color&gt;[ &lt;position&gt;]?</code>，也可以设定多个颜色值，而不写位置的话，就按照<size>规定的值平均分布。</size></li>
 <li>颜色前面一大串：定义径向渐变的圆心、位置和渐变模式。<ul>
-<li><shape> 是形状，可选值为<code>ellipses</code>（椭圆）或者<code>circles</code>（正圆），如果整个元素是个正方形的话，两个形状就都一样啦。</shape></li>
-<li><size> 是尺寸，可以定义渐变的数值半径，如果形状是椭圆的话，需要填写两个尺寸值，按顺序是水平半径和垂直半径，此时尺寸可以写百分数。</size></li>
+<li>&lt;shape&gt; 是形状，可选值为<code>ellipses</code>（椭圆）或者<code>circles</code>（正圆），如果整个元素是个正方形的话，两个形状就都一样啦。</li>
+<li>&lt;size&gt; 是尺寸，可以定义渐变的数值半径，如果形状是椭圆的话，需要填写两个尺寸值，按顺序是水平半径和垂直半径，此时尺寸可以写百分数。</li>
 <li>尺寸另外还有4个关键字可用：<code>closest-side</code>（最近的边）、<code>farthest-side</code>（最远的边）、<code>closest-corner</code>（最近的角）、<code>farthest-corner</code>（最远的角），这4个关键字是指圆心相对于元素而言的，顾名思义想一下就好。</li>
-<li><position> 是圆心位置，需要在位置前面加上<code>at</code>，可以用position常用的关键字，也可以使用数值定义。</position></li>
+<li>&lt;position&gt; 是圆心位置，需要在位置前面加上<code>at</code>，可以用position常用的关键字，也可以使用数值定义。</li>
 </ul>
 </li>
 </ul>
@@ -195,7 +195,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hikarievo.me/2016/05/21/20160521-detailed-introduction-of-background-properties/" data-id="cip0we0nu000ossxe35bj9gs9" class="article-share-link">分享</a>
+      <a data-url="http://hikarievo.me/2016/05/21/20160521-detailed-introduction-of-background-properties/" data-id="cip0xssso000nosxe9hdr638z" class="article-share-link">分享</a>
       
       
         <a href="http://hikarievo.me/2016/05/21/20160521-detailed-introduction-of-background-properties/#ds-reset" class="article-comment-link ds-thread-count" data-thread-key="20160521-detailed-introduction-of-background-properties">留言</a>
