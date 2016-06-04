@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>给设计师们的代码指南（三）—— 定位与布局 | 喵窝</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="之前说了什么是 CSS ，也介绍了 CSS 的盒模型，下面理所当然地要进入 CSS 的核心内容，定位与布局。其实说完这个部分，CSS 就没什么东西可说了，剩下的都是些细枝末节或者很直观的东西。对，把最抽象的这部分理解了， CSS 就没有任何难度可言了。
+如果你的制图习惯比较良好（良好的意思是有比较完整地执行这里的规则），有好好对图层进行分组，那么你就已经对你的设计稿完成了最初步的切版工作。按照你切">
+<meta property="og:type" content="article">
+<meta property="og:title" content="给设计师们的代码指南（三）—— 定位与布局">
+<meta property="og:url" content="http://hikarievo.me/2014/11/17/a-code-guide-to-designers-3/index.html">
+<meta property="og:site_name" content="喵窝">
+<meta property="og:description" content="之前说了什么是 CSS ，也介绍了 CSS 的盒模型，下面理所当然地要进入 CSS 的核心内容，定位与布局。其实说完这个部分，CSS 就没什么东西可说了，剩下的都是些细枝末节或者很直观的东西。对，把最抽象的这部分理解了， CSS 就没有任何难度可言了。
+如果你的制图习惯比较良好（良好的意思是有比较完整地执行这里的规则），有好好对图层进行分组，那么你就已经对你的设计稿完成了最初步的切版工作。按照你切">
+<meta property="og:image" content="http://hikarievo.qiniudn.com/code-guide/Flexible-Box-layout.png">
+<meta property="og:image" content="http://www.w3.org/TR/css3-flexbox/images/rel-vs-abs-flex.svg">
+<meta property="og:updated_time" content="2014-11-19T13:17:51.871Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="给设计师们的代码指南（三）—— 定位与布局">
+<meta name="twitter:description" content="之前说了什么是 CSS ，也介绍了 CSS 的盒模型，下面理所当然地要进入 CSS 的核心内容，定位与布局。其实说完这个部分，CSS 就没什么东西可说了，剩下的都是些细枝末节或者很直观的东西。对，把最抽象的这部分理解了， CSS 就没有任何难度可言了。
+如果你的制图习惯比较良好（良好的意思是有比较完整地执行这里的规则），有好好对图层进行分组，那么你就已经对你的设计稿完成了最初步的切版工作。按照你切">
+<meta name="twitter:image" content="http://hikarievo.qiniudn.com/code-guide/Flexible-Box-layout.png">
+  
+    <link rel="alternate" href="/atom.xml" title="喵窝" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">喵窝</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">您在本站所读到的每一个字，都是我家猫在键盘上踩出来的</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://hikarievo.me"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-a-code-guide-to-designers-3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/17/a-code-guide-to-designers-3/" class="article-date">
+  <time datetime="2014-11-17T11:57:40.000Z" itemprop="datePublished">2014-11-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      给设计师们的代码指南（三）—— 定位与布局
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>之前说了什么是 CSS ，也介绍了 CSS 的盒模型，下面理所当然地要进入 CSS 的核心内容，定位与布局。其实说完这个部分，CSS 就没什么东西可说了，剩下的都是些细枝末节或者很直观的东西。对，把最抽象的这部分理解了， CSS 就没有任何难度可言了。</p>
+<p>如果你的制图习惯比较良好（良好的意思是有比较完整地执行<a href="http://hao.uisdc.com/ps/" target="_blank" rel="external">这里</a>的规则），有好好对图层进行分组，那么你就已经对你的设计稿完成了最初步的切版工作。按照你切的版，把元素一个个码好，你的页面就搞定了。然而实际上的页面并不是像PSD设计稿那么安分，它有可能这个部分要一直固定在屏幕顶端，那个部分的内容时多时少，因此才要学会 CSS 的“布局语言”。<br><a id="more"></a></p>
+<h2 id="常规流"><a href="#常规流" class="headerlink" title="常规流"></a>常规流</h2><p>我们通常讲的块级元素与行内元素的默认表现，就是它们在常规流中的表现。有一个名为<code>display</code>的 CSS 属性可以修改它们的表现形式。在默认情况下，块级元素的<code>display</code>属性值为<code>block</code>，行内元素的属性值为<code>inline</code>，如果你把某个<code>a</code>元素的<code>display</code>属性值改成<code>block</code>，那么这个<code>a</code>元素就会像一个块级元素一样表现自己了。另外还有一个比较特殊的属性值为<code>inline-block</code>，顾名思义是像行内元素<strong>那样排列</strong>的块级元素，一般情况下，在想要并列排列某些块级元素的时候，就可以把它们的<code>display</code>属性值改成<code>inline-block</code>（无奖问答：为什么不直接改成<code>inline</code>呢？）</p>
+<p>###相对定位<br>一般的教程会把相对定位和绝对定位一起放在浮动的前面或者后面，而我选择这么安排内容的原因之一是我想要强调<strong>相对定位的元素仍然在常规流中</strong>（事实上<a href="http://www.w3.org/TR/CSS2/visuren.html" target="_blank" rel="external">W3C标准</a>也是如此安排目录的）。</p>
+<p><code>position:relative</code>的元素就拥有了相对定位的能力，而用户可以通过上下左右（top、bottom、left、right）四个属性值（但是通常只使用top和left，因为这里允许使用负数，right = -left）来<strong>在视觉上</strong>“推走”这个元素。相对定位最大的特点就是，元素的本体还在那里，而用户看到的则未必（上下左右都不设置或者为0的时候，元素仍旧在那里），定位方式是“相对于原位置定位”，因此被称为相对定位。而其真正在定位上的应用，通常不是在大框架的布局，而是一些小地方、小细节的微调，而其更常见的用法，会在下面再次提到。</p>
+<p>当然一个超级普通毫无特色常规流块级元素根本无法满足我们对丰富布局的需求，所以出现了人间大杀器——<code>float</code>。</p>
+<p>##浮动<br>当我们将某个元素的<code>float</code>属性改为<code>left</code>或者<code>right</code>的时候，这个元素就成为了一个<strong>浮动的块级元素</strong>。</p>
+<p>首先它仍然是一个块级元素（如果它原本是一个内联元素，那么此时它也变成了块级元素）——拥有<code>padding</code>、<code>border</code>、<code>margin</code>，可以设置宽高。其次它浮起来了：</p>
+<ul>
+<li>它脱离了常规流</li>
+<li>它的宽度变成了它内容的宽度</li>
+<li>它向着你规定的方向挤成一堆</li>
+</ul>
+<p>这些事意味着什么呢：</p>
+<ol>
+<li>浮动元素的宽度变成了其内容所需的最小宽度。如果这个元素里面还有一个常规块级元素呢？那就要看这个常规块级元素多宽咯（它没定义宽度，那还是100%）。</li>
+<li>浮动元素后面的常规元素看不见他（因为他们不在同一个“流”里了），浮动元素的父元素也看不见他（视而不见），只有行框看得见——文字会绕着它们排列。</li>
+<li>浮动元素会按着所规定的方向一个接一个水平排列，如果水平位置不够则换到下一行，如果水平位置和垂直位置都还有剩，则会优先往上放。</li>
+<li>浮动元素与父元素、浮动元素之间的内外边界不会相交。也就是说，浮动元素以及其父元素的<code>padding</code>、<code>margin</code>区域都不会重叠。</li>
+<li>浮动元素的顶边不会超过源代码中它前面出现元素所生成行框的顶。</li>
+</ol>
+<p>几乎所有关于浮动布局可能出现的问题，都可以在上面这几条中找到原因。举个栗子：</p>
+<p><strong>两列布局</strong><br>微博就是最典型的两列布局（新版V6的登录后首页变成三列了，不过用户页面仍然是两列…），这种两列式的布局解决方法很简单，两个固定宽度的<code>div</code>，一起向左浮动，或者一个向左、一个向右。</p>
+<p>而在很多游戏网站中，为了尽可能利用大屏幕的优势，而把页面设计成左边有一个固定宽度的导航，右侧全屏占满，在这种情况下，上面的写法就不成立了。不管两个元素如何浮动，宽度都没有办法正好撑满整个屏幕，虽然 CSS 中的 <code>width</code>（宽度） 属性可以使用百分比的值，但是当你将其设为100%的时候，它又掉下来了。此时最好的做法是将左边栏（第一个 div）设为浮动，并且给一个固定的宽度（比如200px）。此时两个 div 元素在同一高度上，但是右侧的 div 看不到左侧的那个，内容仍然从左上角开始显示，此时只要给这个 div 的<code>margin-left</code>赋值为200px，就可以将右侧div的左边200px空出来，这样两列布局的基本就完成了。</p>
+<p>###清除浮动（Clear-fix）<br>有些人觉得Clear fix被翻译为清除浮动并不合适，因为实际上浮动仍然还在（元素仍然漂浮着），而这个术语的本意也应该是“清除浮动所造成的不良影响”，不过在中文圈子里，从 clearfix 方法出生伊始，它就被叫做清除浮动了…所以也没办法啦╮(╯▽╰)╭。</p>
+<p>它所修正的不良影响，主要是针对上面的第二条。浮动元素的父元素看不到它：如果某个块级元素里的所有子元素都是浮动的，那么这个元素自身就不会有高度，在需要设置背景和边框的时候，这种问题总像幽灵般如影随形。解决方法也很成熟：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">/* floatbox 即为 float 属性为 left 或 right 的元素 */</span><br><span class="line">.floatbox &#123; </span><br><span class="line">  *zoom: 1; </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">.floatbox:before, </span><br><span class="line">.floatbox:after &#123; </span><br><span class="line">  display: table; </span><br><span class="line">  line-height: 0; </span><br><span class="line">  content: ""; </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">.cfloatbox:after &#123; </span><br><span class="line">  clear: both; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>另外还有一个“真正的”清除属性——<code>clear</code>，在上面的示例中也出现了，这个属性规定了该元素的左侧或右侧是否可以与浮动元素相邻——如果规定的方向有浮动元素，那么这个元素就会向下排列（到底是有多讨厌人家…）</p>
+<p>##绝对定位<br>还有一种比较特殊的定位方式，被称为绝对定位，事实上我们PS文件中的图层都是绝对定位。<code>position:absolute</code>的元素就成为了一个绝对定位元素，相对定位是相对于元素自身，而绝对定位也是针对元素自身而言——跟自身原本绝对没关系。</p>
+<p>绝对定位的元素完全脱离了常规流，可以说是“哪个元素都看不见它”。而它仍然需要一个定位的“原点”，W3C规定离绝对定位元素最近的<code>position</code>属性为<code>relative</code>、<code>absolute</code>或<code>fixed</code>的祖先元素的内容框的左上角（有一个特例，就是该祖先元素为行内元素的时候，这里不展开说明了，基本遇不到），作为该元素绝对定位的原点。因此，其实，相对定位元素（<code>position:relative</code>）通常都被用于创建绝对定位元素的包含块（containing block），如果你有一个绝对定位元素，而它的位置跟你预想的不对，那就是其定位基准出问题了。而其定位方式一样，是通过上下左右的值来规定的。</p>
+<p>###固定定位<br><code>position:fixed</code>的元素就是固定定位元素，本质上它也是一种绝对定位，这种元素会固定于浏览器窗口的固定位置，很多网站顶端的固定导航、右下角的固定广告等等都是通过这种方式定位的。</p>
+<p>##定位关系<br>如果某个元素是绝对定位元素（<code>position</code>为<code>absolute</code>或<code>fixed</code>），则<code>float</code>属性对其无效，同时元素变为块级元素。</p>
+<p>而当某个元素的<code>position</code>不为<code>static</code>（<code>position:static</code>即为最普通的常规流中的元素）时，它们彼此之间就有可能发生重叠（就像PS图层一样，图层重叠是很常见的）。</p>
+<ul>
+<li>在源代码中后出现的元素会覆盖先出现的元素</li>
+<li>浮    动元素会覆盖常规流元素</li>
+<li>绝对定位元素会覆盖浮动元素</li>
+<li><p>使用<code>z-index</code>可以无视上述三条规则</p>
+<p><code>z-index</code>属性可以规定图层之前的层叠顺序，其数值越大，该元素越靠“前”（叠在所有图层的最上面），如果你发现某个元素无论如何都覆盖不了，检查一下它的z-index属性值，也许就能找到答案。</p>
+</li>
+</ul>
+<p>##Flexible Box（伸缩盒模型）<br><code>display:flex</code>的元素就会应用伸缩盒模型，它是 CSS 中真正为布局而生的模型。现在关于这个模型的相关文章还很少，而且各种问题也很多，因为从09年到现在，它经历了3个大的版本变化，而这涉及到了大量手机及IE的版本兼容问题，导致很多网站都不愿意采取这种布局方式。</p>
+<p><img src="http://hikarievo.qiniudn.com/code-guide/Flexible-Box-layout.png" alt="" title="CanIuse中记录的各版本浏览器对伸缩盒模型的支持情况"></p>
+<p>使用这种模型布局进行布局最炫酷的一点是，我们不用再费力计算宽度然后为元素规定宽度，所有的宽度根据所有可用空间及内容进行分配，这样对于个数不固定的元素也可以实现完美分配。空间分配方式有两种：</p>
+<p><img src="http://www.w3.org/TR/css3-flexbox/images/rel-vs-abs-flex.svg" alt=""></p>
+<ol>
+<li>按照盒的宽度比例分配</li>
+<li>按照剩余空间比例分配</li>
+</ol>
+<p>如果上面的说明有点不清楚，点<a href="http://bennettfeely.com/flexplorer/" target="_blank" rel="external">这里</a>有一个DEMO，可以通过改变左边各项属性的值看到其结果。如果你们的项目只针对最新的iPhone（iOS7及以上），你可以考虑拗你们的前端去尝试使用这个模型来布局（我曾亲测过绝大多数网上流传的兼容代码，全军覆没，主要国内有UC浏览器这个大杀器）。</p>
+<p>##后<br><code>display</code>规定了该元素所应用的模型，<code>position</code>规定了该元素的定位方式，二者共同构成了 CSS 定位与布局的基础。另外W3C也提出了伸缩盒模型用于满足复杂多变的布局需求，并且开始推荐厂商实现，如果各位有需要，在将来我可以单独开一篇文章讲这部分内容。</p>
+<p>定位与布局在整个 CSS 当中是最难掌握的，这里我提到内容也只是最容易发生的问题，对于初入代码门的设计师来说，基本上是够用了。但是很多前端工程师（不仅是处女座的）多少都会有一些代码洁癖，对代码中的嵌套包含关系也很在意，比如某位大神的<a href="http://www.zhangxinxu.com/wordpress/2014/06/understand-css-clear-left-right-and-use/" target="_blank" rel="external">这篇文章</a>中提到的代码层级关系与内容层级之间的联系，不愿意仅仅为了布局而增加一个额外的元素，这种时候精通各种 CSS 布局方式及其特点就显得很有必要了。各位可以根据自己的程度选择自己想要深入到何处~</p>
+<p>最后关于相关的教程，除了<a href="http://www.w3school.com.cn/css/css_positioning.asp" target="_blank" rel="external">W3C School的定位系列</a>之外，我还推荐<a href="http://bbs.csdn.net/topics/340173664" target="_blank" rel="external">CSDN的说说标准系列</a>。前者应用型很强还带有很多示例，适合初学者以应用为目的的基础学习，后者则是推荐给那些想要进阶为前端工程师的人，深入了解 W3C 对盒模型及定位的定义，同时也有很多示例代码可供学习。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hikarievo.me/2014/11/17/a-code-guide-to-designers-3/" data-id="cip0o0746000wbsxea7c1m4aj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/初心者/">初心者</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/11/24/the-mystery-of-properties-apply-to-table-columns/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          列元素所用属性之谜
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/11/06/a-code-guide-to-designers-e1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">给设计师们的代码指南（番外）—— 我的代码问题在哪</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/初心者/">初心者</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/吃/">吃</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具/">工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推荐/">推荐</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂谈/">杂谈</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/游记/">游记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/看书/">看书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/翻译/">翻译</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/考据/">考据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 18.33px;">CSS</a> <a href="/tags/HTML/" style="font-size: 15px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/初心者/" style="font-size: 15px;">初心者</a> <a href="/tags/吃/" style="font-size: 10px;">吃</a> <a href="/tags/工具/" style="font-size: 16.67px;">工具</a> <a href="/tags/推荐/" style="font-size: 11.67px;">推荐</a> <a href="/tags/杂谈/" style="font-size: 20px;">杂谈</a> <a href="/tags/游记/" style="font-size: 10px;">游记</a> <a href="/tags/看书/" style="font-size: 11.67px;">看书</a> <a href="/tags/翻译/" style="font-size: 10px;">翻译</a> <a href="/tags/考据/" style="font-size: 13.33px;">考据</a> <a href="/tags/设计/" style="font-size: 15px;">设计</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/05/21/20160521-detailed-introduction-of-background-properties/">CSS background 属性使用手册</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/02/20160402-from-newbie-to-veteran/">从菜鸟到行家，从面条说起</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/18/20160318-leaner-responsive-images-with-client-hints/">【译】使用客户端查询托管响应式图片</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/11/20151011-online-diagram-and-flow-chart/">在线创建美图表、流程图</a>
+          </li>
+        
+          <li>
+            <a href="/2015/09/03/20150903-lets-orienteering/">来一起玩定向吧 &gt;&lt;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 阿布<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

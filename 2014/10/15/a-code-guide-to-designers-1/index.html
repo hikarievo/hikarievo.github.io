@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>给设计师们的代码指南（一）——HTML与CSS简介 | 喵窝</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="之前一直说要开坑，但是手忙脚乱的脑内拟了一段暴长的Opening全被我扣押在脑海里了。精减下来只有一句话谨以此文献给那些被代码折磨的设计师们，和那些无法与前端交流的设计师们。本文将从0出发，并把内容和难度限定于设计师需要并可以理解的范畴内，我并不打算写一本前端教材（因为不够格），所以请各位尽可能轻松阅读。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="给设计师们的代码指南（一）——HTML与CSS简介">
+<meta property="og:url" content="http://hikarievo.me/2014/10/15/a-code-guide-to-designers-1/index.html">
+<meta property="og:site_name" content="喵窝">
+<meta property="og:description" content="之前一直说要开坑，但是手忙脚乱的脑内拟了一段暴长的Opening全被我扣押在脑海里了。精减下来只有一句话谨以此文献给那些被代码折磨的设计师们，和那些无法与前端交流的设计师们。本文将从0出发，并把内容和难度限定于设计师需要并可以理解的范畴内，我并不打算写一本前端教材（因为不够格），所以请各位尽可能轻松阅读。">
+<meta property="og:updated_time" content="2014-10-20T16:21:41.080Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="给设计师们的代码指南（一）——HTML与CSS简介">
+<meta name="twitter:description" content="之前一直说要开坑，但是手忙脚乱的脑内拟了一段暴长的Opening全被我扣押在脑海里了。精减下来只有一句话谨以此文献给那些被代码折磨的设计师们，和那些无法与前端交流的设计师们。本文将从0出发，并把内容和难度限定于设计师需要并可以理解的范畴内，我并不打算写一本前端教材（因为不够格），所以请各位尽可能轻松阅读。">
+  
+    <link rel="alternate" href="/atom.xml" title="喵窝" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">喵窝</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">您在本站所读到的每一个字，都是我家猫在键盘上踩出来的</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://hikarievo.me"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-a-code-guide-to-designers-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/15/a-code-guide-to-designers-1/" class="article-date">
+  <time datetime="2014-10-15T13:34:40.000Z" itemprop="datePublished">2014-10-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      给设计师们的代码指南（一）——HTML与CSS简介
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>之前一直说要开坑，但是手忙脚乱的脑内拟了一段暴长的Opening全被我扣押在脑海里了。精减下来只有一句话<strong>谨以此文献给那些被代码折磨的设计师们，和那些无法与前端交流的设计师们。</strong>本文将从0出发，并把内容和难度限定于设计师需要并可以理解的范畴内，我并不打算写一本前端教材（因为不够格），所以请各位尽可能轻松阅读。</p>
+<a id="more"></a>
+<h1 id="设计稿与代码之间的关系"><a href="#设计稿与代码之间的关系" class="headerlink" title="设计稿与代码之间的关系"></a>设计稿与代码之间的关系</h1><p>在很久很久以前，是没有网页设计师的存在的，当HTML横空出世为互联网注入最基本的生命之时，没有人在意页面是否好看。而随着时间的发展，大众审美需求的提升，网页也需要有更多的变化而不仅仅是文字的展示，于是开始出现了网页设计师这样的职业，而与之相对的就是CSS的诞生。</p>
+<p>在最早的网页中，一切的一切都是混在一起的（就像盘古开天辟地之前的宇宙），虽说是一切，其核心只有两个——<strong>内容</strong>与<strong>样式</strong>。这样的大乱炖给工程师和网页设计师都造成了很大的困扰——如果你曾经试图打开过某个网站的源代码你就会知道，那里面乱成什么德行，而那个时期的源代码是你能看到的混乱程度再乘个5位数……好吧这只是个比喻，总之因为双方都受不了混乱的代码，于是<a href="http://zh.wikipedia.org/wiki/%E4%BC%AF%E7%89%B9%C2%B7%E6%B3%A2%E6%96%AF" title="伯特·波斯" target="_blank" rel="external">有人</a>提出建议，把样式从内容中踢出去，被踢出来的部分变成了CSS，留下的便是HTML。BTW，随之应运而生的就是前端工程师（当然其实诞生途中还有flash啊js啊php啊各种乱七八糟的东西飞来飞去，你都不必知道）。</p>
+<p>从这里我们大概可以知道，HTML是面对电脑、工程师这些理性逻辑头脑的，而CSS是那些理性逻辑的家伙为设计者准备的一个“工具”，是帮助HTML面对人的工具，也是让一堆文字变成设计稿那般的唯一工具。</p>
+<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><p>前面说到网页的核心是<strong>内容</strong>与<strong>样式</strong>，HTML就是其前者——<strong>内容</strong>。脱离了内容的样式是没有意义的，也就是说离开HTML光谈CSS是没有意义的。HTML语言其实很好辨认，由两个尖括号：<code>&lt;</code>和<code>&gt;</code>包起来的就被称为<em>标签(tag)</em>，如果你看到某个文档里时不时出现标签，那这份文档十有八九都是由HTML语言（或者它的亲戚XML）写成的。</p>
+<p>而由一对标签（比如<code>&lt;p&gt;</code>和<code>&lt;/p&gt;</code>）包起来的所有文字内容，便被称为<em>元素(element)</em>。元素开头的标签就被称为开始标签，而末尾的标签则被称为结束标签。开始标签和结束标签之间可以没有任何文字（比如<code>&lt;i&gt;&lt;/i&gt;</code>）</p>
+<blockquote>
+<p>有一种特殊的自闭合标签，比如水平线<code>&lt;hr /&gt;</code>或者图片<code>&lt;img /&gt;</code>，它们的斜杠位于尖括号里面，这样的标签本身就是一个元素。</p>
+</blockquote>
+<p>元素都有它的名字，名字就是开始标签的那个尖括号后面的第一个单词，这个名字主要是给电脑看的，用于区分某个元素的“用途”。元素可以说是HTML的根基，因此它非常重要！而作为设计师，我们同样也需要对元素的名字有所了解：</p>
+<ul>
+<li>不同的元素有不同的默认表现；</li>
+<li>某些元素只能位在特定的元素内；</li>
+<li>某些元素只能位在特定的位置上。</li>
+</ul>
+<p>同时在前端工程师中有一个很重要的课题便是<strong>语义化</strong>（Semantic HTML）。这涉及到很多问题，比如做好的网页能不能被搜索引擎（比如百度、Google）收录，被收录的部分是不是我们希望他收录的部分。不过作为设计师，语义化是写代码很久以后需要考虑的课题（甚至永远不会遇到），但我仍然希望你们知道有这样一个东西（之后我也会经常提到）。</p>
+<p>元素之间可以嵌套，但是不能交叉闭合，比如：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">  这是p元素中的文字，在span元素之前</span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span></span><br><span class="line">    这是span元素中的文字，在p元素里。span元素是p元素的子元素（儿子）</span><br><span class="line">  <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  这是p元素中的文字，在span元素之后。</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>后出现的标签要先闭合成为一个元素，像下面这样写就<strong>绝对不行</strong>：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>关于HTML，我要说的最后一个东西就是<em>属性(attribute)</em>。属性会出现在元素的开始标签里，通过空格区分不同的属性，而写法是<code>属性名=&quot;属性值&quot;</code>。对于使用css的设计师来说，class属性就是最重要也是最经常使用的属性之一。</p>
+<p>现在你可能有点晕头转向，但是后面我会不断提到<strong>标签</strong>、<strong>元素</strong>、<strong>属性</strong>，如果不记得就回来看一下就好了。</p>
+<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><p>这就是网页的第二个核心——<strong>样式</strong>。理论上讲它可以规定网页的一切表现，位置、颜色、大小、距离…设计稿上的所有效果都可以借助它一一呈现，但是在实际应用中配合功能和性能以及各方面的要求，导致设计师的构想并不一定能够完整表达。</p>
+<p>HTML代码可以写在很多文件中，而css代码只能出现在两个地方：css文件或者html文件中。而css的基本呈现形式是这样的：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">selector</span>&#123;</span><br><span class="line">  <span class="attribute">property</span>: value;</span><br><span class="line">  <span class="attribute">property</span>: value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>选择器</strong>(selector)是用来告诉浏览器，样式需要应用到哪个元素上，它的功能非常强大——可以直接按元素名称选择，也可以按元素的id属性值选择，还可以按元素的class属性值来选择，甚至可以选择某个元素的兄弟、儿子、孙子，还能选择元素的状态。</p>
+<p>在HTML及CSS中都经常提到的一个词，class，通常也被称作<strong>类</strong>。一个元素是可以拥有多个类的（但不能拥有多个id，整个HTML文件中的所有元素的id属性值都应该是唯一的），类名与类名之间使用空格隔开，而<strong>类名不能使用中文</strong>。通过类选择器选择元素，是CSS中最常见的选择方式。</p>
+<p>CSS的属性(property)和前面说过的元素的属性(attribute)是完全不同的，有兴趣的话可以读一下<a href="http://www.web-tinker.com/article/20115.html" title="Web技术研究所--Attribute和Property的区别" target="_blank" rel="external">这篇文章</a>，之后我会尽量区分说明，请各位尽量避免混淆。每一条CSS属性-值（property-value）都构成一个声明，每一句声明之后都需要一个半角分号<code>;</code>来作为结束（就像我们写作时所用的句号）。</p>
+<p>至于大括号（<code>{</code>和<code>}</code>），这是css的语法标记，就像HTML中的尖括号，时刻不要忘，否则易出错。</p>
+<h2 id="HTML-CSS"><a href="#HTML-CSS" class="headerlink" title="HTML + CSS"></a>HTML + CSS</h2><p>HTML 与 CSS 结合在一起，设计稿就这样从一张图片变成了我们在浏览器中浏览的静态网页，当然这也就是以前可能会经常听到的 DIV + CSS 。这样话说起来很轻巧，但是无论是 HTML 还是 CSS 都是需要一个字一个字打出来的…而更多的问题，就在 HTML 与 CSS 的结合过程中产生了。欲知后事如何，且听…</p>
+<p>…慢着，我们还是先把它们结合起来，有问题下次再说…</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>页面标题写在title标签里<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"css/mycss.css"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    body标签内的内容，就是会在浏览器窗口中显示的内容。</span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>以上是一个最基本的带有CSS链接的HTML页面的代码：</p>
+<ul>
+<li>最上面的!DOCTYPE是一个声明，默认这么写就可以，还有很多种写法，可以参见<a href="http://www.w3school.com.cn/tags/tag_doctype.asp" title="HTML &lt;!DOCTYPE&gt; 标签" target="_blank" rel="external">这里</a>；</li>
+<li>html元素是所有网页都必须要具备的，网页中的一切内容必须写在html元素内；</li>
+<li>head元素是给浏览器和搜索引擎准备的，大部分并不会显示在页面上；<blockquote>
+<p>title元素中的内容会显示在浏览器标题栏的位置上；<br>link元素的href属性则指示了这个页面所使用的css文件的；<br>还有可能会出现script元素，它将会指示这个页面所使用的js文件；</p>
+</blockquote>
+</li>
+<li>body元素是放置网页内容的地方（你以后所写的99.9%的HTML代码都会位于这个元素内）。</li>
+<li>标签之前的空格被称作“缩进”，只要涉及到编程就离不开缩进。良好的缩进习惯可以帮助写出易读的代码，在任何一个项目或者页面中，都应该正确使用缩进。上面所展示的代码就是一个基本的缩进示范，每个子元素都比其父元素缩进一个单位。<blockquote>
+<p>一般的缩进只要按下键盘左边的Tab键就好，但是在程序员中广泛存在一种究竟是一个Tab好还是两个空格好的争议（如同咸甜豆腐脑般的存在）。当然在书写过程中，没有人会去按两下空格，他们通常是把Tab的输入改为两个空格而已（所以你只要记得，缩进一个单位按一下Tab就好）</p>
+</blockquote>
+</li>
+</ul>
+<p>关于书写代码工具，首推Sublime Text（逼格够高！），绿色便携的Notepad++也是不错的选择。我平时使用的是EmEditor，如果需要进行项目管理则使用国人基于Eclipse开发的HBulider（懒B的选择）。</p>
+<hr>
+<p>下篇文章将正式开始讨论css与html结合过程中所会遇到的第一个严重问题——内联元素(inline element)与块级元素(block element)，同时介绍CSS中最重要的基本概念——盒模型(Box Model)。</p>
+<p>延伸阅读：</p>
+<ol>
+<li><a href="http://www.w3school.com.cn/css/css_selector_type.asp" target="_blank" rel="external">CSS元素选择器 - W3School</a></li>
+<li><a href="http://www.w3school.com.cn/css/css_selector_class.asp" target="_blank" rel="external">CSS类选择器 - W3School</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hikarievo.me/2014/10/15/a-code-guide-to-designers-1/" data-id="cip0o0749000ybsxeue5t44w0" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/">HTML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/初心者/">初心者</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/10/23/a-code-guide-to-designers-2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          给设计师们的代码指南（二）—— 代码里的图层
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/10/07/left-lin-right-lin/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">左“隣”右“鄰”</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/初心者/">初心者</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/吃/">吃</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具/">工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推荐/">推荐</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂谈/">杂谈</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/游记/">游记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/看书/">看书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/翻译/">翻译</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/考据/">考据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 18.33px;">CSS</a> <a href="/tags/HTML/" style="font-size: 15px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/初心者/" style="font-size: 15px;">初心者</a> <a href="/tags/吃/" style="font-size: 10px;">吃</a> <a href="/tags/工具/" style="font-size: 16.67px;">工具</a> <a href="/tags/推荐/" style="font-size: 11.67px;">推荐</a> <a href="/tags/杂谈/" style="font-size: 20px;">杂谈</a> <a href="/tags/游记/" style="font-size: 10px;">游记</a> <a href="/tags/看书/" style="font-size: 11.67px;">看书</a> <a href="/tags/翻译/" style="font-size: 10px;">翻译</a> <a href="/tags/考据/" style="font-size: 13.33px;">考据</a> <a href="/tags/设计/" style="font-size: 15px;">设计</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/05/21/20160521-detailed-introduction-of-background-properties/">CSS background 属性使用手册</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/02/20160402-from-newbie-to-veteran/">从菜鸟到行家，从面条说起</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/18/20160318-leaner-responsive-images-with-client-hints/">【译】使用客户端查询托管响应式图片</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/11/20151011-online-diagram-and-flow-chart/">在线创建美图表、流程图</a>
+          </li>
+        
+          <li>
+            <a href="/2015/09/03/20150903-lets-orienteering/">来一起玩定向吧 &gt;&lt;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 阿布<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

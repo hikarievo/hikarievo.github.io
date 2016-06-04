@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>给设计师们的代码指南（二）—— 代码里的图层 | 喵窝</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="献给那些被代码折磨的设计师们的第二弹~设计师一直觉得代码很难搞，一点都不直观，但其实网页代码与 PS 文件是有相似之处的，这篇文章就会从这份相似性入手，来谈谈 HTML 中一个最基础的概念——内联元素与块级元素，而与之对应的 CSS 当中的概念便是行框与盒模型。
+BTW：在网上看到有人说到 HTML 4 + CSS 2.1 与 HTML 5.0 + CSS3 的问题，我会根据需求和实际情况具体说">
+<meta property="og:type" content="article">
+<meta property="og:title" content="给设计师们的代码指南（二）—— 代码里的图层">
+<meta property="og:url" content="http://hikarievo.me/2014/10/23/a-code-guide-to-designers-2/index.html">
+<meta property="og:site_name" content="喵窝">
+<meta property="og:description" content="献给那些被代码折磨的设计师们的第二弹~设计师一直觉得代码很难搞，一点都不直观，但其实网页代码与 PS 文件是有相似之处的，这篇文章就会从这份相似性入手，来谈谈 HTML 中一个最基础的概念——内联元素与块级元素，而与之对应的 CSS 当中的概念便是行框与盒模型。
+BTW：在网上看到有人说到 HTML 4 + CSS 2.1 与 HTML 5.0 + CSS3 的问题，我会根据需求和实际情况具体说">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/67020811gw1elk9nx4hthj20r80ngwjx.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/67020811gw1elk9qjrqouj20kk0cz74n.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/67020811gw1elkeg7gocaj20k00b6myw.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/67020811gw1elk9qkpm5lj20c10bkt9a.jpg">
+<meta property="og:updated_time" content="2014-10-22T16:50:52.441Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="给设计师们的代码指南（二）—— 代码里的图层">
+<meta name="twitter:description" content="献给那些被代码折磨的设计师们的第二弹~设计师一直觉得代码很难搞，一点都不直观，但其实网页代码与 PS 文件是有相似之处的，这篇文章就会从这份相似性入手，来谈谈 HTML 中一个最基础的概念——内联元素与块级元素，而与之对应的 CSS 当中的概念便是行框与盒模型。
+BTW：在网上看到有人说到 HTML 4 + CSS 2.1 与 HTML 5.0 + CSS3 的问题，我会根据需求和实际情况具体说">
+<meta name="twitter:image" content="http://ww3.sinaimg.cn/large/67020811gw1elk9nx4hthj20r80ngwjx.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="喵窝" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">喵窝</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">您在本站所读到的每一个字，都是我家猫在键盘上踩出来的</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://hikarievo.me"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-a-code-guide-to-designers-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/23/a-code-guide-to-designers-2/" class="article-date">
+  <time datetime="2014-10-22T16:50:40.000Z" itemprop="datePublished">2014-10-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      给设计师们的代码指南（二）—— 代码里的图层
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://ww3.sinaimg.cn/large/67020811gw1elk9nx4hthj20r80ngwjx.jpg" style="float:right;width:360px;margin-left:10px;" title="炫酷屌炸天的Google"></p>
+<p>献给那些被代码折磨的设计师们的第二弹~设计师一直觉得代码很难搞，一点都不直观，但其实网页代码与 PS 文件是有相似之处的，这篇文章就会从这份相似性入手，来谈谈 HTML 中一个最基础的概念——内联元素与块级元素，而与之对应的 CSS 当中的概念便是行框与盒模型。</p>
+<p>BTW：在网上看到有人说到 HTML 4 + CSS 2.1 与 HTML 5.0 + CSS3 的问题，我会根据需求和实际情况具体说明，而文章整体上是趋向于  HTML 5.0 + CSS3 的，而HTML 5.1 在语义化中所作的努力，我也会尽量写进来（但是因为个人了解实在有限，所以如果出现错误还请不吝赐教）。</p>
+<p>简单来说，如果你的老板/客户要求你兼容IE6、7、8，那就几乎无法使用 HTML 5，普通的 HTML 也会出现各种奇怪的问题，作为一个设计师的你也可以直接义正言辞地说，臣妾做不到啊~~（IE6 兼容在世界各地的前端工程师眼里都是眼中钉肉中刺上辈子的仇敌这辈子的冤家）<br><a id="more"></a></p>
+<p>在正文开始之前，我想先让你看一眼最上面那张图，你是不是觉得这种展示方式仿佛在哪里见过？如果你曾经做过应用的banner或者是手机主题，那你甚至有可能用过类似的方式来展现你们的产品。Google前段时间推出的Material Design也提到了<a href="http://www.ui.cn/project.php?id=19009" title="Material Design中文文档" target="_blank" rel="external">布局的纵深感</a>，在其中有这样一张示意图：</p>
+<p><img src="http://ww2.sinaimg.cn/large/67020811gw1elk9qjrqouj20kk0cz74n.jpg" alt=""></p>
+<p>网页内的每一个元素，其实就好像是你 PS 文件中的一个图层，通过 CSS 的手段来定位图层，就好像你在PS里移动、缩放、旋转图层那样，本质上没有太多区别。我们都知道 PS 的图层面板中，越靠上的图层，在图片中显示越“往前”，而在 HTML 中，后出现的元素则会叠在先出现的元素上面。<strong>如果说图层就是一张张纸片，PS 中的图层管理是把一张张纸片叠起来，那么 HTML 中每出现一个新元素，就好像是新拿来一张纸，叠在原本的纸片堆上。</strong></p>
+<p>以上面那张 Google Material Design 的示意图为例，其 HTML 代码简单写下来大概是下面这样（我用div的id属性值来表示上面图中的部件名称，实际使用中请不要这么做）：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"background"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"system-status-bar"</span>&gt;</span></span><br><span class="line">    系统状态</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content-card"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>Floating Button<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"system-navigation-bar"</span>&gt;</span></span><br><span class="line">      底部导航</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>我写这段代码的用意是展示 HTML 代码中的元素与实际页面上的<strong>层</strong>的关系。在 PS 中，只要图层之间的上下位置正确就可以，如果两个部分没有互相重叠，那么这两个部分的图层谁在上谁在下都可以。但是在 HTML 中，除了遵循最基本的“后出现在上面”的原则，<strong>通常</strong>还需要注意，如果两个部分属于同级，那么位置靠上的内容要先写（加粗“通常”两个字真意味深长啊哈哈）。</p>
+<p>在 CSS 的世界中，这种一个个表现得如同图层一般的 HTML 元素就被称为<strong>块级元素(Block Element)</strong>。</p>
+<h1 id="块级元素与盒模型"><a href="#块级元素与盒模型" class="headerlink" title="块级元素与盒模型"></a>块级元素与盒模型</h1><p>块级元素有两个默认的表现：</p>
+<ul>
+<li>在没有规定宽度的情况下，它的宽度会自动撑满所能占据的宽度。</li>
+<li>这些块会一个接一个的上下放置。</li>
+</ul>
+<p>这是我觉得 HTML 元素为数不多的与 PS 图层不同的地方。PS 的图层更随意，HTML 元素受到的约束更多。</p>
+<p>块级元素本身，则遵循着被称作<strong>盒模型(Box Model，也被称作框模型)</strong>的布局方法，你可能已经听说过<code>padding</code>和<code>margin</code>这两大基友了，也许还看过不少示意图，如果你仍然不懂…我也不想丢你一个抽象得只有线的图，请看：</p>
+<p><img src="http://ww2.sinaimg.cn/large/67020811gw1elkeg7gocaj20k00b6myw.jpg" alt="" title="盒子框框都是画"><br><small>图片来自<a href="https://www.scad.edu/life/buildings-and-facilities/gallery-see" target="_blank" rel="external">SCAD</a></small></p>
+<p>诶嘿嘿 =v= 我希望这种表述方式你们可以懂~</p>
+<p>最中央位于“画”的部分的，是为Content（内容），你的文字、图片或者其他子元素都会放在这里。画框与画之间的绿色区域（蓝色箭头所示长度分别表示上下左右距离），就是所谓的<code>padding</code>（内边距），画框自然就是<code>border</code>（边框），再往外一层的空白（被染红了，箭头所示长度分别表示上下左右距离），就是<code>margin</code>（外边距），在这里我用深浅不同的红色表示每一个“元素”的外边距，其实。在我的理解里，<code>margin</code>就好像元素伸出来的一只手，拟人之后大概是这样:</p>
+<p><img src="http://ww2.sinaimg.cn/large/67020811gw1elk9qkpm5lj20c10bkt9a.jpg" alt="" title="本人不接受任何形式的查水表"></p>
+<p>…当然了<code>padding</code>、<code>border</code>和<code>margin</code>的宽度、颜色乃至样式（仅限<code>border</code>）都可以分别设置，家庭的一些无框装饰画或者像是莫奈的睡莲那种三幅一联这样的，都是比较典型的三无（左右无内外边距、无边框）元素。</p>
+<p>元素之所以又是内又是外，里里外外跟洋葱似的套那么多层，是因为 HTML 元素需要一个定位的基准。在 PS 中，所有的图层都是以该图层的左上角的像素点，相对于整个画布的位置来决定的（你打开窗口 –&gt; 信息 面板，并移动图层的时候，就能看到这个图层的位置信息）。然而这种定位方式对于网页来说，并不现实，而说到定位与布局，那就是 CSS 的另一个非常重要且庞大的部分了，所以我们留到之后再说……</p>
+<h1 id="行内元素与行框"><a href="#行内元素与行框" class="headerlink" title="行内元素与行框"></a>行内元素与行框</h1><p>我们都知道，PS 里除了普通图层，文字也会自成一个图层，当我们想把一段文字中的某两个字换个颜色，改改字号或者字体，只要选中这两个字，然后去用文字工具修改就可以了。但是在 HTML 中，这样不行。你需要告诉浏览器，从哪个字开始，到哪个字结束，它们的字号、字体、颜色需要发生变化。</p>
+<p>这么说可能有点抽象，那么我们来举个栗子：</p>
+<blockquote>
+<p>我要告诉<span style="color: red">所有人</span>这个鱼塘<s>被我承包了</s>。</p>
+</blockquote>
+<p>这句话的“所有人”三个字是红色，而“被我承包了”这段话上出现了删除线。其对应的 HTML 代码应该是（在实际写代码的时候，这种地方不用分行，我分成5行是为了便于解释）：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">  我要告诉</span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">"color: red"</span>&gt;</span>所有人<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  这个鱼塘</span><br><span class="line">  <span class="tag">&lt;<span class="name">s</span>&gt;</span>被我承包了<span class="tag">&lt;/<span class="name">s</span>&gt;</span></span><br><span class="line">  。</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><code>p</code>元素是段落元素，它里面不能放置任何块级元素，而放置其中<code>span</code>元素及<code>s</code>元素，便被称为<strong>行内元素(Inline Element，也被称作内联元素)</strong>。另外“我要告诉”、“这个鱼塘”、“。”这三段被分割的文字（标点符号也算文字），浏览器会在分析显示的时候，创造出一个行内“匿名框”，因此这个<code>p</code>元素里实际上拥有5个行内框，这些“框”从左到右依次排列在一起，就变成<strong>行框</strong>。</p>
+<p>在我们学习英语的时候，老师会讲到所有的字都要位于某一条线的上方，只有像f\g\j\p\q\y这些字会把尾巴伸到那条线的下方，这条线就被称为<strong>基线(Baseline)</strong>。在默认情况下，行内元素及那些行内匿名框都是以基线对齐的（ PS 中有且仅有基线对齐一种方式，所以基线就是我们在 PS 中编辑文字时总能看到的那条线了）。</p>
+<p>另外一个困扰无数前端的大问题就是行高（line-height）…不过我觉得对于广大设计师来说这都不是事儿……对，PS 里也有一个叫做行高的值，如果前面说的框框框框让你难以理解，把 PS 中的行高直接带入理解也没有什么问题（当然具体问题具体分析，高度计算在整个 CSS 布局中都是一个比较令人困扰的问题）。</p>
+<p>行框相对于盒模型来说鲜少被提到，因为那些“行内框”实际上也应用了盒模型，只是对于那些非自闭和标签所构成元素（这种元素被称为<strong>非替换元素</strong>(non-replaced elements)，意思是说元素所显示的<strong>内容</strong>无法通过修改属性的方式替换）而言，<code>padding</code>、<code>margin</code>乃至<code>width</code>（宽度）属性都会被无视，这点经常被人忽视而造成问题。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>在这篇文章中，我提到了三个非常重要的概念<strong>盒模型</strong>、<strong>块级元素</strong>与<strong>行内元素</strong>（这三个是一定需要理解和记住的，其它的嘛……不急于现在记住…）。这三个概念都是在 CSS 当中使用的，其中，盒模型是 CSS 当中，对 HTML 元素“图层化”的处理规范；块级元素和行内元素，则是 CSS 当中，对 HTML 元素的一种分类方式（HTML 对它的元素有自己的另一种分类方式）。</p>
+<p>至于说哪些元素是块级的，哪些是行内的，哪些元素里面不能有哪些元素这种比较细节的问题，我在这里写一些常用的…肯定涵盖不到全部范畴，但是作为一个设计师的你来说，应该是完全够用了：</p>
+<h2 id="块级元素"><a href="#块级元素" class="headerlink" title="块级元素"></a>块级元素</h2><ul>
+<li>最常见的块级元素便是<code>div</code>，如同 PS 中的图层 1 或者图层 765，没有特殊含义，里面可以套各种各样的元素。</li>
+<li>有序列表<code>ol</code>、无序列表<code>ul</code>也是块级元素，而他们的子元素只能是列表项<code>li</code>元素，<code>li</code>元素是块级元素，但是<code>li</code>元素里只能放行内元素（和<code>p</code>元素一样）。</li>
+<li><code>h1~6</code>是标题专用的标签，还有引用<code>blockquote</code>，这两个是块级元素，而其里面只能放行内元素。</li>
+<li>表格<code>table</code>及其相关的行、列、单元格元素在表现上你可以当作它是一个块级元素，但它整体的样式解析方式非常特殊。本着样式追随内容的原则，在需要展现表格的地方使用表格元素，不要把表格当作样式或者布局的工具。</li>
+<li>表单<code>form</code>，语义化的块级元素，在 HTML 中表示这是个表单元素，而在 CSS 中，他跟<code>div</code>元素一样，里面放什么都行。</li>
+<li>HTML 5 中新增了一批块级元素，主要是为了 HTML 语义化。包括<code>header</code>（页头）、<code>footer</code>（页脚）、<code>nav</code>（导航）、<code>article</code>（文章）、<code>aside</code>（侧边栏）、<code>section</code>（节选）。它们对其子元素都没有强制性的要求，只有<code>article</code>和<code>section</code>需要内嵌一个标题元素，这同样是出于语义化的考虑。如果你不知道怎么用，可以不用理会它们，统统用<code>div</code>（除非你是个想转为前端的设计师）。</li>
+</ul>
+<h2 id="行内元素"><a href="#行内元素" class="headerlink" title="行内元素"></a>行内元素</h2><ul>
+<li>任何一段没有被标签包围的文本都会被视为一个行内元素。</li>
+<li>超链接<code>a</code>是一个典型的行内元素（但是实际应用中，经常会用超链接元素来做一个按钮（需要padding、margin），这在 CSS 当中也是可行的，以后再说）。</li>
+<li><code>span</code>元素在行内元素中的地位与<code>div</code>在块级元素中的地位相同，万金油的行内元素。</li>
+<li>看起来变粗的<code>b</code>与<code>strong</code>，以及看起来变斜体的<code>i</code>与<code>em</code>。这两组元素在HTML 5中严格规定了语义，<code>b</code>表示无意义的加粗（比如产品名，或者仅仅是为了排版），<code>i</code>表示在文章中突出不同意见或语气（分类、术语、谚语等等）,<code>em</code>表示一般的强调，<code>strong</code>表示超级强调的强调（……）。</li>
+<li>图片<code>img</code>、输入框<code>input</code>、下拉菜单<code>select</code>、文本框<code>textarea</code>。这几个元素作为行内元素，但却可以设置padding、margin（因为它们是替换元素）</li>
+<li>让字变小的<code>small</code>（让字变大的<code>big</code>元素虽然也是行内元素，但是 HTML 5 已经将其废止了）、上标<code>sup</code>、下标<code>sub</code>、短引用<code>q</code>、注音<code>ruby</code>、换行<code>br</code>等等都是行内元素。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hikarievo.me/2014/10/23/a-code-guide-to-designers-2/" data-id="cip0o073z000rbsxepzxc3cuv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/">HTML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/初心者/">初心者</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/11/04/back-from-taiwan/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          台湾归来
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/10/15/a-code-guide-to-designers-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">给设计师们的代码指南（一）——HTML与CSS简介</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/初心者/">初心者</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/吃/">吃</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具/">工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推荐/">推荐</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂谈/">杂谈</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/游记/">游记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/看书/">看书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/翻译/">翻译</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/考据/">考据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 18.33px;">CSS</a> <a href="/tags/HTML/" style="font-size: 15px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/初心者/" style="font-size: 15px;">初心者</a> <a href="/tags/吃/" style="font-size: 10px;">吃</a> <a href="/tags/工具/" style="font-size: 16.67px;">工具</a> <a href="/tags/推荐/" style="font-size: 11.67px;">推荐</a> <a href="/tags/杂谈/" style="font-size: 20px;">杂谈</a> <a href="/tags/游记/" style="font-size: 10px;">游记</a> <a href="/tags/看书/" style="font-size: 11.67px;">看书</a> <a href="/tags/翻译/" style="font-size: 10px;">翻译</a> <a href="/tags/考据/" style="font-size: 13.33px;">考据</a> <a href="/tags/设计/" style="font-size: 15px;">设计</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/05/21/20160521-detailed-introduction-of-background-properties/">CSS background 属性使用手册</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/02/20160402-from-newbie-to-veteran/">从菜鸟到行家，从面条说起</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/18/20160318-leaner-responsive-images-with-client-hints/">【译】使用客户端查询托管响应式图片</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/11/20151011-online-diagram-and-flow-chart/">在线创建美图表、流程图</a>
+          </li>
+        
+          <li>
+            <a href="/2015/09/03/20150903-lets-orienteering/">来一起玩定向吧 &gt;&lt;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 阿布<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

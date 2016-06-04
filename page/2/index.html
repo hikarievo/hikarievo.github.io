@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>喵窝</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="想要做UX的全栈设计师的部落格，涉猎广泛而内含大量技术文考据文还有游记请慢慢品尝。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="喵窝">
+<meta property="og:url" content="http://hikarievo.me/page/2/index.html">
+<meta property="og:site_name" content="喵窝">
+<meta property="og:description" content="想要做UX的全栈设计师的部落格，涉猎广泛而内含大量技术文考据文还有游记请慢慢品尝。">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="喵窝">
+<meta name="twitter:description" content="想要做UX的全栈设计师的部落格，涉猎广泛而内含大量技术文考据文还有游记请慢慢品尝。">
+  
+    <link rel="alternate" href="/atom.xml" title="喵窝" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">喵窝</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">您在本站所读到的每一个字，都是我家猫在键盘上踩出来的</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://hikarievo.me"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-20150311-pseudo-elements-content" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/11/20150311-pseudo-elements-content/" class="article-date">
+  <time datetime="2015-03-11T14:06:25.000Z" itemprop="datePublished">2015-03-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/03/11/20150311-pseudo-elements-content/">神奇的伪元素content属性</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>伪元素就是在 CSS 文件中选中的，实际上是不存在在 DOM 中的元素，早在 CSS1 的方案中就提出了<code>:first-letter</code>和<code>:first-line</code>这两个伪元素（也就是说 IE5.5 这种史前怪兽也可以做首字下沉和首行特效…），在CSS2中则添加了<code>:before</code>和<code>:after</code>伪元素，在CSS3中，为了区别伪元素与伪类，则让伪元素使用<code>::</code>作为前缀（IE从 IE9 开始支持 :: 伪元素）。</p>
+<p><code>:before</code>和<code>:after</code>这对好兄妹在初登场的时候使用得并不频繁，因为根据 CSS2.1 的描述，它们是用来显示那些作者不希望出现在文档树中，可以让浏览器自动生成的内容：</p>
+<blockquote>
+<p>In some cases, authors may want user agents to render content that does not come from the document tree. One familiar example of this is a numbered list; the author does not want to list the numbers explicitly, he or she wants the user agent to generate them automatically. Similarly, authors may want the user agent to insert the word “Figure” before the caption of a figure, or “Chapter 7” before the seventh chapter title. For audio or braille in particular, user agents should be able to insert these strings.</p>
+</blockquote>
+<p>后来的人们把这些棒棒的 idea 全部弃之不用，反之利用它的特性来完成很多黑科技手法：其主要用法之一是让它们充当 clear fix （清除浮动）以及避免 margin collapse （margin合并）的元素，从而保持干净整洁的 DOM 文档树。另外还有使用伪元素来做 icon （Bootstrap 所使用的 Font Awesome 以及现在绝大多数 @font-face 做 icon 的基本上都是这么做）。后来伴随着 CSS3 所支持的更多效果，慢慢就出现了一些丧病的 绘图，开始看到的是<a href="http://tympanus.net/Tutorials/CSSButtonsPseudoElements/index3.html">像这样</a>的伪 3D 特效，然后代码死宅们还放出了 <a href="http://one-div.com/">One div</a> 这种实用奇特小 icon 和 <a href="http://a.singlediv.com/">A Single Div</a> 这种明显就是炫技的作品……</p>
+<p>各种情况表明现在这对好兄妹完全是肆无忌惮的泛滥状态，但上面举例这些却只是神奇伪元素的一部分用法——<code>content</code>属性值为字符串或空，从当时来看（乃至现在来看），根本都属于黑科技的一类。但其实伪元素<code>:before</code>和<code>:after</code>还有很多其他可选的属性值…而且那才是人家被创造出来的本意啊！！！<br>
+        
+          <p class="article-more-link">
+            <a href="/2015/03/11/20150311-pseudo-elements-content/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hikarievo.me/2015/03/11/20150311-pseudo-elements-content/" data-id="cip0o073h0008bsxeoba37duf" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-20150218-what-i-talk-about-when-i-talk-about-employment" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/02/18/20150218-what-i-talk-about-when-i-talk-about-employment/" class="article-date">
+  <time datetime="2015-02-18T03:45:07.000Z" itemprop="datePublished">2015-02-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/02/18/20150218-what-i-talk-about-when-i-talk-about-employment/">当我谈论工作时我谈论什么</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>接近一个月没写东西…是因为我在忙着跳槽，跳槽这件事本身并不耗费精力，但来回扯皮真的是人生一大经验，感觉自己瞬间萌萌哒 Level UP！了。回过头来想谈谈工作的事，主要是因为原单位是一家小公司，为了找人接手工作我只好硬着头皮当了一回面试官（上一次当面试官是在大学学生会面新人小伙伴的时候…），之前也看过一些向毕业生介绍如何求职的文章，发现那些文章和实际需求果然还是有差异……小公司的过法，其实很有趣。<br>
+        
+          <p class="article-more-link">
+            <a href="/2015/02/18/20150218-what-i-talk-about-when-i-talk-about-employment/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hikarievo.me/2015/02/18/20150218-what-i-talk-about-when-i-talk-about-employment/" data-id="cip0o073d0003bsxez8b2e393" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/杂谈/">杂谈</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-20150121-impression-of-elements-of-UX" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/21/20150121-impression-of-elements-of-UX/" class="article-date">
+  <time datetime="2015-01-21T12:50:59.000Z" itemprop="datePublished">2015-01-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/21/20150121-impression-of-elements-of-UX/">《用户体验要素》读后</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Jesse James Garrett的<a href="http://book.douban.com/subject/6523997/" target="_blank" rel="external">《用户体验要素：以用户为中心的产品设计》</a>（The Elements of User Experience: User-Centered Design for the Web and Beyond，Second Edition）大概是UX入门的必读作品了，前阵子在整理资料的时候顺手把这张图汉化了：</p>
+<p><img src="http://ww1.sinaimg.cn/large/67020811gw1enn7r7twe5j20uo0njtgy.jpg" alt="用户体验要素"></p>
+<p>这张图就是出自这本书，也是这本书内容的主要纲领，纲领都做了，顺带看一下原文也是情理之中。书本身的内容比我想象中要简明，在我最初了解 UX 的时候，我一直觉得这是一件不言自明的事情，在看过这本书之后，才发现领域的不同带来的鸿沟竟是如此巨大：对于一把椅子来说，其功能性与用户体验是密不可分的，没有良好的体验的椅子，其功能性几乎无从谈起，而对于互联网产品而言，功能与体验的相关性就没那么强（尤其在功能大量同质化的今天，产品体验反而成为了成败的关键）。</p>
+<p>现在 UX 或者 UCD 已经成为一个流行词汇，就像前两年（乃至现在仍在）流行的“互联网思维”，老板们开始试着重视这些东西是因为它们确实能带来更高的效益。虽然四处都在招 UX Designer，但我更倾向于另一种说法，UX 是无法“被设计”的，用户所有的体验，都应当是顺理成章理所当然清晰明了的，我们只能顺着这些“理”，围绕目标用户的基本特质去设计我们的产品。</p>
+<p>书里试图将“作为信息系统的网站”和“作为软件界面的网站”融合起来，其实作为中国互联网的年轻一代或者大多数，很少有经历过单纯“作为信息系统的网站”的时代，我接触互联网的时候，中国互联网已经有了三大门户，各种工具不一而足。我一直以为只要目标明确、手段清晰、技巧得当，最终产品总不会太糟糕，因而在我看来，这本书可能其实是在讲产品经理在做的事——开发产品的流程（难怪豆瓣用户都喜欢把这本书丢进产品经理的书单里）。</p>
+<p>为何用户体验要贯穿产品开发的始终，在本书中所提到的第一个层面，战略层，其所指与网站的功能或内容都毫不相干，然而却在潜移默化中影响着最终的功能形态和内容构成。诚如书最后所言，产品的开发过程应该更类似于马拉松，而不是一个一个阶段的短跑冲刺。如果产品最终的流程如丝般顺滑，用户在任何一个角落都可以轻松找到自己想要的内容而欢欣鼓舞，那么这个产品的基础，也就是其战略目标，一定是清晰的。而就算瞎猫碰上死耗子，漫无目的的产品仍旧产出了良好的体验，要么你可能需要回头修改你的战略，要么就很有可能有更大的潜藏的问题（比如用户喜欢，你却得不到盈利？）</p>
+<h2 id="用户体验要素的分层"><a href="#用户体验要素的分层" class="headerlink" title="用户体验要素的分层"></a>用户体验要素的分层</h2><p><img src="http://ww1.sinaimg.cn/large/67020811gw1enls6de9ugj212o0qqwkh.jpg" alt="用户体验要素分层模型"></p>
+<p>这张图是上面那张图的纲领形态，五个层面对应五层所需的行动。虽然作者将产品开发流程分为5个层面的行动，但这5个层面并非彼此割裂孤立的，向上反馈是必要且重要的，及时修正上一层面操作中所出现的问题，可以为将来的发展铺垫得更好。</p>
+<h3 id="战略层"><a href="#战略层" class="headerlink" title="战略层"></a>战略层</h3><p>研究思考产品为何而生，于人于己的意义何在？品牌形象如何融入？用户细分及用户研究，并撰写战略文档都是此阶段要做的事情。</p>
+<p>公司开发一个产品，肯定是为了赚钱或者省钱，个人开发某个产品也许只是为了自己爽，而赚钱或省钱的方式各有千秋，每个人G点也不同，所以产品目标应该是基于双方（开发者及使用者）需求提出的，找到需求点，提出问题及解决方案。</p>
+<p>而这也就势必牵涉到对用户的分析，目标用户群体是怎样的，他们的年龄段，对互联网的使用习惯，生活习惯，人生三观，以及针对产品的一些特殊需求等等，通过不同的手段将用户分成不同类别。然后就是对这些用户群体的研究，可以是通过他人已经完成的研究成果，也可以自己去做。我不太喜欢调查问卷（因为我自己本身就是一个习惯性问卷作弊者…），实际的操作记录及用户测试相对更加可靠，最终根据测试和调研结果，虚构若干个“使用者”，将具有代表性的需求分配给这些“使用者”，这样产品出产会更加顺利。</p>
+<p>而对于开发者而言，开发产品的目的大抵是明确的（假装他是明确的，不明确的不要做了趁早洗洗睡吧），这里需要额外思考的是品牌形象的整合，与如何将一整套战略完整地传达给团队中的每一个人，毕竟就算制定了策略，最终的实施者却是实际开发的团队成员，倘若他们不知道策略如何，谈何实施。最后应该是成功标准，有了目标，就要有是否达成目标的标准，倘若不是转化率注册率之类的数字，访问量停留时间这样的指标也可以。</p>
+<h3 id="范围层"><a href="#范围层" class="headerlink" title="范围层"></a>范围层</h3><p>需求定义。</p>
+<p>之前根据用户需求提出了产品目标，现在则是根据产品目标提产品需求：内容和功能上的。为了满足用户以及我们的种种需求，这个产品需要囊括哪些内容，需要建立哪些功能，这些功能又需要哪些内容，这些内容又需要哪些功能来支撑。所以其实我不太懂把功能和内容割裂思考的方式，它们本来就是水乳交融。</p>
+<p>所有的需求都要写下来，并且尽量避免抽象（最受欢迎）、主观（高大上）或者略语（等等），这些需求应该是可以确定是否已经满足的，像“时尚时尚最时尚”这种表述，鬼知道什么产品能满足。内容需求则应该涉及到文字、图像、影音文件的相关数量及更新频率等等，并且根据使用者的不同区分出不同的内容需求。</p>
+<p>最后确认这些需求的优先级，以及它们跟战略目标之间的关系，如果某个功能或内容需求无法满足战略目标，那就要思考是哪边的问题，并及时修正（删掉这个需求，或者修改战略）。</p>
+<h3 id="结构层"><a href="#结构层" class="headerlink" title="结构层"></a>结构层</h3><p>交互设计与信息架构。</p>
+<p>这俩都是术语，也已经自成学科。对于交互设计来说，产品功能通过怎样的流程行进，如何能满足用户潜意识下的反应，通过隐喻或者其他方式让用户减少思考，令其能够凭直觉使用网站的功能，并通过各种方式减少用户犯错的机会，及其所造成的挫败感（及时纠错），大抵就是交互设计在做的事。这里包含了各种各样的模式，比如：当人们填写完查询表单并点击提交的时候，希望看到的是查询结果而非广告或注册窗口。</p>
+<p>信息架构是网站内容的分类管理，这些内容的分类可以根据战略层的产品目标逐一细分需求得到，也可以通过范围层的内容需求进行分类整合，最好的做法是二者配合进行，最终令细分下来的内容符合内容需求，整合出的内容符合战略需求。一个适应性强的信息架构系统，是有极强的扩展和统合能力的，如果很好奇这部分内容的话，我觉得去给 wiki 做页面分类是个不错的选择…内容整合或细分的困难点就在于如何留下足够的弹性空间去容纳新的部分而不破坏原本整体的架构，以及根据新的需求重新定义分类或增加分类方式。这些所有的信息分类组合，都要建立在前面所描述的需求及目标之上，能够预知用户的期望并将其纳入设计。</p>
+<p>在这个部分作者提到了网站架构图——记录网站页面或文件的群集、独立以及彼此之间的关系，在他的官网上有一份文档描述<a href="http://www.jjg.net/ia/visvocab/chinese.html" target="_blank" rel="external">如何制作架构图</a>，现在可能叫 User Interface Flow 的也有。名字和形态都不重要，这份图表的最重要目的是将之前所有抽象的工作转化成可操作的具体的事项，因为接下来，开发流程就要进入到一个完全具象化的世界里。</p>
+<h3 id="框架层"><a href="#框架层" class="headerlink" title="框架层"></a>框架层</h3><p>线框图来了。</p>
+<p>让界面与用户的习惯一致，让对的东西出现在对的位置上，使用对的元素传达对的信息（突出该突出的，让按钮成为按钮）。让用户有能力在页面之间跳转——有意识的或者是无意识的，应该至少提供一种方法。把信息分类组合，提供给界面和功能。把这些内容全部组合在一起，使用线框图来呈现最终的结果。</p>
+<h3 id="表现层"><a href="#表现层" class="headerlink" title="表现层"></a>表现层</h3><p>把线框图与美学合二为一，传统的设计学终于登场。</p>
+<p>使用多种感知方式，保证对比和一致性，做好配色和排版。如果需要的话，可能还要产出一份视觉 guideline，用于维护品牌一致性，并能够为后继者提供足够的参考资料。</p>
+<h2 id="用户体验要素的取舍"><a href="#用户体验要素的取舍" class="headerlink" title="用户体验要素的取舍"></a>用户体验要素的取舍</h2><p>开头就说了这本书近乎于在讲产品开发的流程，但是谁都知道能够完整完成这套流程的团队凤毛麟角，那么是否就应该抛弃某些没有实质性产出的部分呢……？</p>
+<p>答案当然是否。在产品的开发设计过程中，所遇到的问题和奇怪的意见，只要拿来和目标与需求比对，就基本都能够搞清楚是否采纳或者如何反驳。所以产品的目标与需求可以一步完成，需求与架构可以同步完善，甚至把线框也一起囊括，但总的来说，这些步骤所描述的具体内容都应该逐步完成，这样才能最大限度地避免各种潜在问题。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hikarievo.me/2015/01/21/20150121-impression-of-elements-of-UX/" data-id="cip0o07340000bsxekb52w65z" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/看书/">看书</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-impression-of-burn-your-portfolio" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/03/impression-of-burn-your-portfolio/" class="article-date">
+  <time datetime="2015-01-03T03:33:36.000Z" itemprop="datePublished">2015-01-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/03/impression-of-burn-your-portfolio/">荐书《为什么他接的案子比我多》</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这两天出去一趟终于得空把lee姐安利了很久的<a href="http://book.douban.com/subject/26171081/" title="豆瓣介绍" target="_blank" rel="external">书</a>看完了，据说当时火爆到博客来断货什么的。目前这本书还没有简中版，繁中的名字叫《為什麼他接的案子比我多——設計業界潛規則，讓你接案上班都無往不利》，看下来以后觉得…嗯果然除了内容，这本书繁中版的书名翻译以及装帧简直逊到爆，这要放在国内书店里也绝对是斜眼不带瞟一下的，糟蹋了糟蹋了。</p>
+<p>这本书其实是在讲在设计技巧之外的，设计师所需要的人际交往、团队合作、项目管理等方面的注意事项，可以说是专门为设计师及设计从业者撰写的成功学指南…虽然说我个人是很厌恶成功学的，但是这本书的脚踏实地的风格和翔实的示例还是非常加分的 XD</p>
+<h2 id="个人素养"><a href="#个人素养" class="headerlink" title="个人素养"></a>个人素养</h2><p>低调、谦逊、上进、友好、善良等等这些特质，其实放在任何职业任何行业都非常适用而且从不过时，然而设计师多少都有点特殊的问题，有一些是来自于其自身艺术性特质所导致的随意、自我，另一些则是被低智商客户折磨出来的暴戾，没耐性…</p>
+<p>对于前者其实没什么好说的，看看卡耐基的《人性的弱点》可能更有用。对于后者，书中也提出了很多解决方法，包括看到苗头不对就快跑；所有的设计范围改动和费用变更都需要落实在书面上；永远把客户当作不在状况的人，提出切实而具体的行动方案和计划等等。这些并不是双方的素养有什么问题（虽然结果上会变成设计师的高傲自负或者客户的白痴无能），而是交流出了问题。</p>
+<h2 id="人际交往"><a href="#人际交往" class="headerlink" title="人际交往"></a>人际交往</h2><p>还是要先推一下卡耐基的《人性的弱点》，作者在正文第的第一章第一节就指出他最爱的书是这本，并且自己都记不清送出过多少本…我个人也是在几年前被一位好友硬塞来的，现在想想真的后悔当时的自己在人际交往上是有多糟糕（虽然现在好像也没进步太多……）。</p>
+<p>《为什么》这本书中所述的交往技巧包括了如何与客户就项目进行沟通，如何维系自己与客户之间的关系，以及这种维系的重要性。</p>
+<p>项目沟通涵盖了从项目启动到进行过程中的大事小情，从一开始商榷好项目范围以及报价并开始推进项目进程，时刻与客户保持沟通，告知项目的进展及客户可以参与的具体事项，在项目遇到问题的时候采用何种措辞通知客户共同采取措施，以确保项目可以如期完工。</p>
+<p>这本书的细微之处，是把这些沟通的邮件范本都列出来了………简直不能更贴心。值得注意的是，繁中版的很多措辞是使用的台湾国语，直接拿来给国内用实在不太符合国情，在措辞方面我个人比较推崇另一本书——《谦词敬词婉词词典》，这本是把现代汉语里有可能用到的谦词敬词全都拖出来单列了，作为工具书来说相当合适。当然谦词敬词也只能算是一部分，其实更多的还是看邮件整体的行文，毕竟在原文英文中，可是连“您”和“你”都不分的，谦逊与敬意也并非一两个字就能表达。</p>
+<p>至于关系，只能说人天性如此，记得当时 guanxi 一词成功打入西方市场的时候，还引起了不小的骚动。逢年过节给人送点礼，人家当然不那么容易忘了你，维系好关系也会对将来的事业有更好的帮助。虽然现在有个更高端的词叫人脉，不过我觉得它们本质上没有太大的不同，只是把“关系”当中的私交稍稍减淡一些。项目给熟人，这本来就是顺理成章的事情。</p>
+<p>作为乙方，服务好甲方让他开开心心掏钱永远是我们最终极的使命。</p>
+<h2 id="团队合作与项目管理"><a href="#团队合作与项目管理" class="headerlink" title="团队合作与项目管理"></a>团队合作与项目管理</h2><p>书里简单提到了团队合作的重要性，这种事情不言而喻。我觉得有趣的是另一个观点，团队有团队的考量。大概意思就是说团队中A犯的错误，有可能导致B丢了饭碗，这是基于整个公司团队的考虑，而并非仅仅关乎个人，既然处在一个命运共同体中，做好自己份内的事就是不给他人添麻烦了。</p>
+<p>而作为项目的领导者，如何管控项目进程就是防止出现上述问题的最大保障。这里包括了如何列清单，在项目的每个阶段都要做些什么，出了问题要怎么办。我觉得他的项目推进清单简直细致到无以复加，虽然在不同的开发项目上也有可能会遭人耻笑（这么一套流程跑下来投资人早跑光光），但是了解流程并尽可能照章执行是最不容易出问题的，就算出了问题也是最容易弥补和变更的，毕竟这都是前人的经验。</p>
+<p>书里还额外提到了关于预算和报价的问题，虽然我是不用操心这种事啦（打工仔有打工仔的好），而且在国内环境下，按工时报价算是非常奢侈的行为，所以预算和报价的问题看看就好（看看老外怎么做就好）。</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>林林总总写了这么多其实好像书籍介绍，除了我上面提到的那些，书里还写了很多更加细节的内容，可以算得上是超级翔实设计师业内生存手册了。</p>
+<p>感谢衣食父母 XDD</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hikarievo.me/2015/01/03/impression-of-burn-your-portfolio/" data-id="cip0o074l001absxexnwacsma" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/看书/">看书</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-things-about-QRcode-design" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/20/things-about-QRcode-design/" class="article-date">
+  <time datetime="2014-12-20T11:25:45.000Z" itemprop="datePublished">2014-12-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/20/things-about-QRcode-design/">关于二维码设计的那点事</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>二维码在中国火起来基本上全靠微信，这种信息存储方式可以保存比条形码多得多的信息，因此在国内通常用于链接地址的收发。在而在平面及网页设计中，设计师们在面对这种由黑白小方块组成的难以处理的图片，几乎不知该从何下手，直接 pia 在作品上又如膏药一般，难以驾驭。</p>
+<p>而网上最近也在各种盛传经过精心设计的二维码，很多人也对设计二维码充满了兴趣。之前在做传单的时候刚好涉及到这部分的内容，顺手搜了很多资料并稍微整理了一下。</p>
+<h2 id="关于二维码"><a href="#关于二维码" class="headerlink" title="关于二维码"></a>关于二维码</h2><p>二维码其实是是个统称，如果各位坐过飞机，在飞机的登机牌上也会有一块用于扫描的长方形区域，那是在上世纪九十年代初就出现的，被称作 PDF417 格式的二维码，现在广泛应用于航空及物流行业中。而我们现在更常见到的，也是本文主要探讨的，是由日本 <a href="http://www.qrcode.com/zh/" target="_blank" rel="external">DENSO WAVE 公司</a>在 1994 年发明的 QR 码（全称为快速响应矩阵码；英语：Quick Response Code），QR 码由 DENSO WAVE 公司持有专利，但开放标准，不行使专利权，也就是说，任意人或组织，都可以随意使用 QR 码这一标准专利而无需向其专利拥有者提出申请。</p>
+<p>关于对二维码进行设计及再次创作，其公司是这么指出的</p>
+<blockquote><p>在QR码上重叠插图或加以设计变形，就需要利用QR码的纠错功能进行读取，而有时会因为一点污痕或缺失而无法读取，或者读取速度变慢，对此需要引以注意。<br>为了确保稳定的读取，还是建议遵从根据JIS、ISO的规格制定的内容加以利用。<br>而且，在QR码上重叠插图或加入设计与QR码的规格不符，有可能无法形成QR码。<br>DENSO WAVE INCORPORATED不行使专利权仅限于符合JIS、ISO规格的QR码，那些与规格不符的QR码不在此列，因而DENSO WAVE INCORPORATED有可能会行使专利权。 若考虑在QR码上重叠插图或施加设计的使用方法，请事先与DENSO WAVE INCORPORATED洽谈。</p>
+<footer><strong>DENSO WAVE</strong><cite><a href="http://www.qrcode.com/zh/faq.html" target="_blank" rel="external">上色及放入插图这种使用方法会有问题吗？</a></cite></footer></blockquote>
+<p>这段话大概意思就是说，对 QR 码进行设计的时候，有可能导致 QR 码无法被正常读取，而与此同时，对 QR 码的设计行为有可能会导致 DENSO WAVE 来查水表 XDD 当然这也只能算是官话，因为在他们公司的另外一段文章中，其发明者也提到</p>
+<blockquote><p>原昌宏表示：“黑白两色的码对人们来说已经习以为常，我希望制作出更为漂亮、能给人们带来惊喜的QR码”。</p>
+<footer><strong>DENSO WAVE</strong><cite><a href="http://www.qrcode.com/zh/history/" target="_blank" rel="external">www.qrcode.com/zh/history</a></cite></footer></blockquote>
+<p>所以其实 DENSO WAVE 是鼓励用户对 QR 码进行设计的，毕竟这样也可以更好地推广 QR 码嘛 XDD</p>
+<p>QR 码具有一定的纠错能力，根据选择，其纠错范围可以从 7% 到 30%。这里所指出的“纠错”，意味着 QR 码的“污损面积”（包括划痕、污迹、破损乃至扫描设备对 QR 码图案造成的模糊情况等等）不足上述面积的时候，QR 码读取设备仍有<strong>有可能</strong>读取，现今所有的对 QR 码的设计都是基于这一原理，然而值得注意的是，如果关键部位有污损（如定位部分），那么这个污损面积只占了不足5%，也有可能导致内容无法读取。</p>
+<h2 id="QR-码的基本规格"><a href="#QR-码的基本规格" class="headerlink" title="QR 码的基本规格"></a>QR 码的基本规格</h2><p>QR 码的最小单位被称为<strong>码元</strong>（一定是对岸友人翻译的），QR 码中的一个“小方块”就是一个码元。在电脑上，使用电脑识别软件进行直接识别的话，一像素一码元就可以了，然而，我们通常所见的 QR 码一般都是使用手机摄像头进行识别的，这样来说 1 像素的图案就太小了。对于印刷而言，可以打印出来的 QR 码的最小尺寸是 3.57 × 3.57 mm（一码元 4 点，折合 0.17mm，最小边长为 21 码元），对于显示屏来说，这样的大小还不到 1 像素一码元 XDDD。而关于最大尺寸，更加无限定，实际上码元越大，对于相机等设备来说越容易读取，只要这个 QR 码的大小不要超过相机的取景范围就好~因此其官网推荐的大小仅有“我们建议用户在打印范围内尽可能大地打印。”这样一句话而已╮(╯▽╰)╭</p>
+<p>码元必须是正方形的，如果在变形时让码元形状发生了变化，那就极有可能无法读取，在用 PS 处理 QR 码的时候需要格外注意。而 QR 码的信息参数如下图：</p>
+<p><img src="http://hikarievo.qiniudn.com/screenshot/QR_Code_Structure_Example_2_zh-hans.svg.png" alt="维基百科的 QR 码结构示意图"></p>
+<p>三个定位标志和一个校正标志（图中未上色的部分）是最重要的区域，这些部位破损严重的话，设备就根本无法读取其内容。另外值得一提的是绿色的“静态区域”，其官网指出，QR 码的边缘<strong>必须留出 4 码元以上的空白</strong>。这个规定，同样是为了便于软件读取，在设计时一定要格外注意（实际上还是蛮多地方不遵守的，微信貌似对没有静态区域的 QR 码也基本都能够顺利读取）。</p>
+<h2 id="QR-码的设计要点"><a href="#QR-码的设计要点" class="headerlink" title="QR 码的设计要点"></a>QR 码的设计要点</h2><p>这里我所指处的设计要点，是指<strong>能够顺利被手机等设备读取</strong>的要点，在 QR 码已经成为一种文化潮流的今天，不乏有艺术家对二维码进行各种艺术化创作，好看是非常好看啦，但是其功能性几乎都要消失殆尽了 ╮(╯▽╰)╭</p>
+<h3 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h3><p>改变 QR 码的颜色，乃至改变 QR 码背景的颜色，都是可以的。然而根据读取软件算法的不同，有些做法相对安全：</p>
+<ul>
+<li>QR 码图案的颜色使用深色覆盖。QR 码背景的颜色使用浅色覆盖，并尽量令颜色柔和过度，避免颜色边缘。</li>
+<li>QR 码的图案与背景颜色有较强烈的明度对比。</li>
+</ul>
+<p>要格外注意的是<strong>不能使用反色对比</strong>，默认情况下，QR 码的图案部分为黑色，在上色的时候，也应该让图案部分的颜色明度明显低于背景。有些人以为只要图案与背景形成对比即可，然而黑底白图案的 QR 码在绝大多数软件来看都是识别不了的……</p>
+<h3 id="覆盖图案"><a href="#覆盖图案" class="headerlink" title="覆盖图案"></a>覆盖图案</h3><p>微信的做法就是在 QR 码中间覆盖上自己的 Logo 或头像，这种做法利用了 QR 码的容错能力。如果你是从运营或者其他人手上得到的这个 QR 码，应该将其视为容错率最低（7%）的那一款。比如一枚 25 × 25 码元的 QR 码，其面积的 7% 就是 43.75 码元，大约是 6 × 7 码元，你的 Logo 只要不大于这个面积，基本上是安全的。</p>
+<p>当然这也要看你 Logo 放置的位置，目前测试下来看，放在中间是最安全的，而放在校正标志附近容错能力较差，覆盖了定位标志则几乎全军覆没。</p>
+<h3 id="周围装饰"><a href="#周围装饰" class="headerlink" title="周围装饰"></a>周围装饰</h3><p>很多 QR 码采取装饰周围空间的方式，令其构成一幅画面，这种做法与覆盖图案的区别仅在于“一个在 QR 码内部，一个在外部”而已。而外部装饰明显比破坏内部信息图案安全的多。</p>
+<p>重点在于官方提出的“静态区域”，它应该占有 4 码元的空间。而根据 QR 码的规格，只要有三个定位标志和一个校正标志，其实就足够软件划出这个 QR 码所处的空间了……唔前面也提到了很多地方并不遵守这一点，事实上因为静态区域过小而无法解码的情况，在我测试过的十几款（累积所有平台）应用里只有一两款，但这个区域不足确实会影响扫码速度。如果一定要在静态区域里添加装饰，更安全的做法是使用浅色，使用与图案形成明显明度对比的颜色。</p>
+<h3 id="改变码元形状"><a href="#改变码元形状" class="headerlink" title="改变码元形状"></a>改变码元形状</h3><p>前面提到，码元是 QR 码的基本存储单位，而其形状一定要是正方形。现在有一些 QR 码在线生成网站，可以快速生成 QR 码，并可以把矩形的码元做成圆角矩形乃至圆形。艺术家也大都采取类似的手法，把 QR 码的图案转化成画面。这些能不能扫出来，完全，是看扫描软件的。</p>
+<p>虽然 QR 码的纠错能力相当强，但我可以比较肯定地说，上面这些做法都非常危险。我们在做 QR 码设计的时候尝试了几款自动生成工具所出的方案，测试了安卓 4.0、4.2、4.4 以及 iOS 6 和 7 下的微信（两个版本）、UC浏览器及其他几款扫码工具，没有一个异形码可以被全部软件识别，解码能力最强的微信，在面对定位标志异形的情况下也变得无法解码。</p>
+<p>根据实际情况，如果你的 QR 码是仅供微信使用，变形的程度可以相对大一些（相对较小的圆角是可以容忍的。在保持定位标志形状不变的前提下，QR 码图案可以做较大改动），如果你的 QR 码是一个网址，可以由任意工具扫描解码，那么请注意，不对其做变形处理才是上策。</p>
+<hr>
+<p>上面说了那么多都是通常情况…我也遇到了，几乎解释不了的情况。</p>
+<p>一般来说 QR 码变形越严重，所需解码时间就越长，但是我在写本文的时候遇到了两枚 QR 码：</p>
+<p><img src="http://hikarievo.qiniudn.com/screenshot/qr_codedesign_vg.jpg" alt="QR码设计" title="梵高的QR码"></p>
+<p><img src="http://hikarievo.qiniudn.com/screenshot/qr_code_design_barcelona_2.jpg" alt="QR码设计"></p>
+<p>这两款，应该是属于“无法解码”那个范畴的，而微信竟然给我秒扫了（当然手机里的其他工具仍旧扫描不能…）。这究竟是为什么，我也不得而知了╮(╯▽╰)╭</p>
+<p>【注】上面两款 QR 码均来自 google，侵删。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hikarievo.me/2014/12/20/things-about-QRcode-design/" data-id="cip0o074p001fbsxermhmnwmq" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计/">设计</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-quick-design-by-using-office" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/08/quick-design-by-using-office/" class="article-date">
+  <time datetime="2014-12-08T11:03:27.000Z" itemprop="datePublished">2014-12-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/08/quick-design-by-using-office/">用 Office 自带套件快速搞定个性化图表设计</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天老板突然叫我出一张单页，手头工作排得满满当当实在没力气设计，看了一眼草图就是服务的流程图，于是就抓出 Office 准备快速搞定。</p>
+<p>早期 Office 在美感方面真的烂的一[哔~]，可能是因为长期从事文秘编辑工作的人对美缺乏敏感吧。不过从 Office 2010 时代开始， Office 套件的功能和颜色突然出现了质的飞跃，其中新增的 SmartArt 简直是快速设计的福音，加上 PPT 更多炫酷的动画及转场特效，直接让我对 Office 2007 路人转黑，拥抱2010至今。</p>
+<p>SmartArt 是 Office 新增的图表类工具，包含列表、流程图、结构图、关系图、矩阵、棱锥等等种类，每个分类下都有多种图表类型可以选择。Word 的话在上方菜单 插入 -&gt; SmartArt 即可， PPT 同样。然后在弹出的窗口中选择你想要的图表类型，值得注意的是有些图表只支持一级目录，反正切换起来也很方便不用太操心。</p>
+        
+          <p class="article-more-link">
+            <a href="/2014/12/08/quick-design-by-using-office/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hikarievo.me/2014/12/08/quick-design-by-using-office/" data-id="cip0o074n001cbsxe195bdkrz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具/">工具</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计/">设计</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-CAPTCHA-and-reCAPTCHA" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/05/CAPTCHA-and-reCAPTCHA/" class="article-date">
+  <time datetime="2014-12-05T08:12:10.000Z" itemprop="datePublished">2014-12-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/05/CAPTCHA-and-reCAPTCHA/">不用输入验证码的验证码</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Google 最近新推出了一款产品，名为 <a href="https://www.google.com/recaptcha">No CAPTCHA reCAPTCHA</a>（真长…）。CAPTCHA就是<strong>全自动区分计算机和人类的图灵测试</strong>（Completely Automated Public Turing test to tell Computers and Humans Apart），我知道你们想让我说人话…用人话来表达这玩意儿就是——验证码……</p>
+<p>那么 Google 的 reCAPTCHA 做了些什么……？他们把</p>
+<p><img src="http://hikarievo.qiniudn.com/screenshot/recaptcha-example.gif" alt="老式验证码"></p>
+<p>变成了</p>
+<p><img src="http://hikarievo.qiniudn.com/screenshot/Recaptcha_anchor@2x.gif" alt="reCAPTCHA验证码"></p>
+<p>哇噢酷~</p>
+        
+          <p class="article-more-link">
+            <a href="/2014/12/05/CAPTCHA-and-reCAPTCHA/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hikarievo.me/2014/12/05/CAPTCHA-and-reCAPTCHA/" data-id="cip0o073x000pbsxewi7p46dl" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/杂谈/">杂谈</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/考据/">考据</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-the-mystery-of-properties-apply-to-table-columns" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/24/the-mystery-of-properties-apply-to-table-columns/" class="article-date">
+  <time datetime="2014-11-24T13:48:17.000Z" itemprop="datePublished">2014-11-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/24/the-mystery-of-properties-apply-to-table-columns/">列元素所用属性之谜</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在<code>table</code>表格元素中，有一个<code>col</code>元素（它还有一个孪生胞兄<code>colgroup</code>元素），在 W3C 标准中，这个元素被称为列元素，用于定义表格中的某些列中的表现形式，在现行及常见的教程中，认为col元素可以使用常见的全局属性，以及<code>align</code>、<code>valign</code>、<code>width</code>等属性（乃至<a href="http://www.w3.org/TR/html401/struct/tables.html#h-11.2.4">HTML 4.1</a> 及 <a href="http://www.w3.org/TR/html5/tabular-data.html#the-col-element">5.0 规范文档</a>中，也同意该元素可以使用全局属性），很多DEMO也用它来举例说明如何让表格中的某列居中对齐、右对齐或改变某列的文字颜色，而事实上在大家常年的实践中，已经证明了一个很恐怖的事情…<code>align</code>也好<code>valign</code>也罢，甚至连全局属性中的<code>color</code>属性都完全不起作用，这到底是发生了什么事。</p>
+<p>照例先上结论：</p>
+<ul>
+<li>在 CSS 2 中，列元素就仅能使用<code>border</code>、<code>background</code>、<code>width</code>及<code>visibility</code>这四个属性，其它属性（如对齐及字色都无法生效）。</li>
+<li>IE6、IE7及IE8(Q)遵循常见教程，可以使用各种对齐和文字相关设置。</li>
+<li>IE9开始及现在所有常用非IE浏览器均支持<code>:nth-child(n)</code>选择器，可以用该选择器实现列选择，并支持所有全局 CSS 属性。</li>
+<li>IE8(S)无解（因为它不支持上述选择器），除第一条所描述的 4 个 CSS 属性之外，无法统一改变列的对齐及字色。</li>
+<li>而<code>col</code>及<code>colgroup</code>元素，除了对IE6、7、8进行兼容之外，已经没用了。</li>
+</ul>
+        
+          <p class="article-more-link">
+            <a href="/2014/11/24/the-mystery-of-properties-apply-to-table-columns/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hikarievo.me/2014/11/24/the-mystery-of-properties-apply-to-table-columns/" data-id="cip0o074s001hbsxe6ap7oltx" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/">HTML</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-a-code-guide-to-designers-3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/17/a-code-guide-to-designers-3/" class="article-date">
+  <time datetime="2014-11-17T11:57:40.000Z" itemprop="datePublished">2014-11-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/17/a-code-guide-to-designers-3/">给设计师们的代码指南（三）—— 定位与布局</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>之前说了什么是 CSS ，也介绍了 CSS 的盒模型，下面理所当然地要进入 CSS 的核心内容，定位与布局。其实说完这个部分，CSS 就没什么东西可说了，剩下的都是些细枝末节或者很直观的东西。对，把最抽象的这部分理解了， CSS 就没有任何难度可言了。</p>
+<p>如果你的制图习惯比较良好（良好的意思是有比较完整地执行<a href="http://hao.uisdc.com/ps/">这里</a>的规则），有好好对图层进行分组，那么你就已经对你的设计稿完成了最初步的切版工作。按照你切的版，把元素一个个码好，你的页面就搞定了。然而实际上的页面并不是像PSD设计稿那么安分，它有可能这个部分要一直固定在屏幕顶端，那个部分的内容时多时少，因此才要学会 CSS 的“布局语言”。<br>
+        
+          <p class="article-more-link">
+            <a href="/2014/11/17/a-code-guide-to-designers-3/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hikarievo.me/2014/11/17/a-code-guide-to-designers-3/" data-id="cip0o0746000wbsxea7c1m4aj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/初心者/">初心者</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-a-code-guide-to-designers-e1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/06/a-code-guide-to-designers-e1/" class="article-date">
+  <time datetime="2014-11-06T13:52:03.000Z" itemprop="datePublished">2014-11-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/06/a-code-guide-to-designers-e1/">给设计师们的代码指南（番外）—— 我的代码问题在哪</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这是一篇番外，主要用于平复一下回家以后面对堆成山的工作的我那从天堂掉到地狱般伤痛的心情…</p>
+<p>很多人在写代码的时候都会遇到这个问题，就是“为什么我的 CSS 没效果？”、“为什么我的 CSS 出来跟我写的不一样？”，而在看别人的页面的时候，我们有时也会想要知道，“哇噢，这么炫酷，他是怎么做的”或者“这里究竟是padding还是margin？”等等问题，其实这些问题都可以自己找到答案，方法则是使用浏览器自带的开发者工具。</p>
+<p>现在的主流浏览器都配有开发者工具，只要按下F12就可以打开，所有的前端工程师都会使用这个工具来调试自己的页面，其实里面的功能是非常非常强大的。下面我将以Chrome为代表介绍，其它浏览的工具大同小异，看一下就会啦~~</p>
+<p>PS:本文属于番外，可能有前文中尚未涉及的内容…不必惊慌反正你总有一天会学到的~</p>
+        
+          <p class="article-more-link">
+            <a href="/2014/11/06/a-code-guide-to-designers-e1/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hikarievo.me/2014/11/06/a-code-guide-to-designers-e1/" data-id="cip0o074d0013bsxe086sbe6o" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/初心者/">初心者</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具/">工具</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">__('next') &raquo;</a>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/初心者/">初心者</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/吃/">吃</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具/">工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推荐/">推荐</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂谈/">杂谈</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/游记/">游记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/看书/">看书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/翻译/">翻译</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/考据/">考据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 18.33px;">CSS</a> <a href="/tags/HTML/" style="font-size: 15px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/初心者/" style="font-size: 15px;">初心者</a> <a href="/tags/吃/" style="font-size: 10px;">吃</a> <a href="/tags/工具/" style="font-size: 16.67px;">工具</a> <a href="/tags/推荐/" style="font-size: 11.67px;">推荐</a> <a href="/tags/杂谈/" style="font-size: 20px;">杂谈</a> <a href="/tags/游记/" style="font-size: 10px;">游记</a> <a href="/tags/看书/" style="font-size: 11.67px;">看书</a> <a href="/tags/翻译/" style="font-size: 10px;">翻译</a> <a href="/tags/考据/" style="font-size: 13.33px;">考据</a> <a href="/tags/设计/" style="font-size: 15px;">设计</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/05/21/20160521-detailed-introduction-of-background-properties/">CSS background 属性使用手册</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/02/20160402-from-newbie-to-veteran/">从菜鸟到行家，从面条说起</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/18/20160318-leaner-responsive-images-with-client-hints/">【译】使用客户端查询托管响应式图片</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/11/20151011-online-diagram-and-flow-chart/">在线创建美图表、流程图</a>
+          </li>
+        
+          <li>
+            <a href="/2015/09/03/20150903-lets-orienteering/">来一起玩定向吧 &gt;&lt;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 阿布<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
