@@ -111,11 +111,11 @@ button::-moz-focus-inner {
   padding: 0;
 }
 @font-face {
-  font-family: FontAwesome;
+  font-family: icomoon;
   font-style: normal;
   font-weight: normal;
-  src: url("fonts/fontawesome-webfont.eot?v=#4.0.3");
-  src: url("fonts/fontawesome-webfont.eot?#iefix&v=#4.0.3") format("embedded-opentype"), url("fonts/fontawesome-webfont.woff?v=#4.0.3") format("woff"), url("fonts/fontawesome-webfont.ttf?v=#4.0.3") format("truetype"), url("fonts/fontawesome-webfont.svg#fontawesomeregular?v=#4.0.3") format("svg");
+  src: url("fonts/icomoon.eot?v=#1.0");
+  src: url("fonts/icomoon.eot?#iefix&v=#1.0") format("embedded-opentype"), url("fonts/icomoon.woff?v=#1.0") format("woff"), url("fonts/icomoon.ttf?v=#1.0") format("truetype"), url("fonts/icomoon.svg#fontawesomeregular?v=#1.0") format("svg");
 }
 html,
 body,
@@ -124,7 +124,7 @@ body,
 }
 body {
   background: #eee;
-  font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 14px "Helvetica Neue", "Helvetica", "Microsoft YaHei", "WenQuanYi Micro Hei", Arial, sans-serif;
   -webkit-text-size-adjust: 100%;
 }
 .outer {
@@ -204,11 +204,18 @@ body {
 .article-inner,
 .archive-article-inner {
   background: #fff;
-  -webkit-box-shadow: 1px 2px 3px #ddd;
-  box-shadow: 1px 2px 3px #ddd;
   border: 1px solid #ddd;
   -webkit-border-radius: 3px;
   border-radius: 3px;
+  -webkit-transition: box-shadow 0.5s;
+  -moz-transition: box-shadow 0.5s;
+  -ms-transition: box-shadow 0.5s;
+  transition: box-shadow 0.5s;
+}
+.article-inner:hover,
+.archive-article-inner:hover {
+  -webkit-box-shadow: 0 0 10px #ddd;
+  box-shadow: 0 0 10px #ddd;
 }
 .article-entry h1,
 .widget h1 {
@@ -406,7 +413,7 @@ body {
   opacity: 1;
 }
 .nav-icon {
-  font-family: FontAwesome;
+  font-family: icomoon;
   text-align: center;
   font-size: 14px;
   width: 14px;
@@ -484,7 +491,7 @@ body {
   background: none;
   color: #555;
   width: 100%;
-  font: 13px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 13px "Helvetica Neue", "Helvetica", "Microsoft YaHei", "WenQuanYi Micro Hei", Arial, sans-serif;
   outline: none;
 }
 .search-form-input::-webkit-search-results-decoration,
@@ -496,7 +503,7 @@ body {
   top: 50%;
   right: 10px;
   margin-top: -7px;
-  font: 13px FontAwesome;
+  font: 13px icomoon;
   border: none;
   background: none;
   color: #bbb;
@@ -530,7 +537,7 @@ body {
   margin-left: 8px;
 }
 .article-category:before {
-  content: "\2022";
+  content: "\f07b";
 }
 .article-category-link {
   margin: 0 12px 1em;
@@ -632,11 +639,25 @@ a.article-title:hover {
 .article-entry blockquote footer {
   font-size: 14px;
   margin: 1.6em 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", "Helvetica", "Microsoft YaHei", "WenQuanYi Micro Hei", Arial, sans-serif;
 }
 .article-entry blockquote footer cite:before {
   content: "—";
   padding: 0 0.5em;
+}
+.article-entry hr {
+  position: relative;
+}
+.article-entry hr:after {
+  font-family: font-icon-family;
+  -webkit-font-smoothing: ;
+  content: '\f00d';
+  font-size: 18px;
+  color: #ddd;
+  position: absolute;
+  top: -0.9em;
+  left: 50%;
+  text-shadow: 0.8em 0, -0.8em 0;
 }
 .article-entry .pullquote {
   text-align: left;
@@ -724,7 +745,7 @@ a.article-title:hover {
 }
 .article-comment-link:before {
   content: "\f075";
-  font-family: FontAwesome;
+  font-family: icomoon;
   padding-right: 8px;
 }
 .article-share-link {
@@ -733,8 +754,8 @@ a.article-title:hover {
   margin-left: 20px;
 }
 .article-share-link:before {
-  content: "\f064";
-  font-family: FontAwesome;
+  content: "\f045";
+  font-family: icomoon;
   padding-right: 6px;
 }
 #article-nav {
@@ -837,7 +858,7 @@ a.article-title:hover {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 14px "Helvetica Neue", "Helvetica", "Microsoft YaHei", "WenQuanYi Micro Hei", Arial, sans-serif;
   padding: 0 15px;
   color: #555;
   outline: none;
@@ -860,7 +881,7 @@ a.article-title:hover {
 }
 .article-share-twitter,
 .article-share-facebook,
-.article-share-pinterest,
+.article-share-weibo,
 .article-share-google {
   width: 50px;
   height: 36px;
@@ -871,10 +892,10 @@ a.article-title:hover {
 }
 .article-share-twitter:before,
 .article-share-facebook:before,
-.article-share-pinterest:before,
+.article-share-weibo:before,
 .article-share-google:before {
   font-size: 20px;
-  font-family: FontAwesome;
+  font-family: icomoon;
   width: 20px;
   height: 20px;
   position: absolute;
@@ -886,7 +907,7 @@ a.article-title:hover {
 }
 .article-share-twitter:hover,
 .article-share-facebook:hover,
-.article-share-pinterest:hover,
+.article-share-weibo:hover,
 .article-share-google:hover {
   color: #fff;
 }
@@ -904,10 +925,10 @@ a.article-title:hover {
   background: #3b5998;
   text-shadow: 0 1px #2f477a;
 }
-.article-share-pinterest:before {
-  content: "\f0d2";
+.article-share-weibo:before {
+  content: "\f18a";
 }
-.article-share-pinterest:hover {
+.article-share-weibo:hover {
   background: #cb2027;
   text-shadow: 0 1px #a21a1f;
 }
@@ -1195,7 +1216,7 @@ a.article-title:hover {
 .article-entry .gist .gist-file .gist-meta {
   background: #2d2d2d;
   color: #999;
-  font: 0.85em "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 0.85em "Helvetica Neue", "Helvetica", "Microsoft YaHei", "WenQuanYi Micro Hei", Arial, sans-serif;
   text-shadow: 0 0;
   padding: 0;
   margin-top: 1em;
@@ -1300,10 +1321,8 @@ pre .javascript .function {
 }
 .widget {
   color: #777;
-  text-shadow: 0 1px #fff;
+  text-shadow: 0 1px #e7f5fa;
   background: #ddd;
-  -webkit-box-shadow: 0 -1px 4px #ccc inset;
-  box-shadow: 0 -1px 4px #ccc inset;
   border: 1px solid #ccc;
   padding: 15px;
   -webkit-border-radius: 3px;
