@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hikarievo.me/"/>
-  <updated>2016-06-05T05:23:18.322Z</updated>
+  <updated>2016-06-05T05:39:36.286Z</updated>
   <id>http://hikarievo.me/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://hikarievo.me/2016/05/21/20160521-detailed-introduction-of-background-properties/"/>
     <id>http://hikarievo.me/2016/05/21/20160521-detailed-introduction-of-background-properties/</id>
     <published>2016-05-21T07:03:35.000Z</published>
-    <updated>2016-06-05T05:23:18.322Z</updated>
+    <updated>2016-06-05T05:39:36.286Z</updated>
     
     <content type="html">&lt;p&gt;&lt;code&gt;background&lt;/code&gt; 属性是CSS中用于设置元素背景的属性，最简单的&lt;code&gt;background&lt;/code&gt;属性名，是针对背景若干设定的合并简写，最早的CSS只能使用单一背景图片，而在现在却可以设置多个背景图片。而不用图片的话，最早的background只能使用纯色填充，现在却可以使用各种渐变效果。现在所用的模型来自于CSS Backgrounds and Borders Module Level 3所定义的规范，主要分成了8个子属性。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;背景颜色之-background-color&quot;&gt;&lt;a href=&quot;#背景颜色之-background-color&quot; class=&quot;headerlink&quot; title=&quot;背景颜色之 background-color&quot;&gt;&lt;/a&gt;背景颜色之 background-color&lt;/h2&gt;&lt;p&gt;&lt;code&gt;background-color&lt;/code&gt;是最早，最古老，最…常用的属性之一，取值是唯一的，颜色值。&lt;/p&gt;
@@ -31,7 +31,7 @@
 &lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;&amp;lt;angle&amp;gt; 可以选择 to top、to bottom、to left、to right这4个关键字和 *deg 设置， 0deg（↓）就相当于 to bottom， 90deg（←） 相当于 to left，以此类推。&lt;/li&gt;
-&lt;li&gt;&amp;lt;start&amp;gt;，&lt;stop&gt;&lt;/stop&gt; 的值则为&lt;code&gt;&amp;lt;color&amp;gt;[ &amp;lt;position&amp;gt;]?&lt;/code&gt;，第一个和最后一个颜色不用写&lt;position&gt;，中间的颜色如果不写的话，所有的颜色就会平均分布。&lt;/position&gt;&lt;/li&gt;
+&lt;li&gt;&amp;lt;start&amp;gt;，&amp;lt;stop&amp;gt; 的值则为&lt;code&gt;&amp;lt;color&amp;gt;[ &amp;lt;position&amp;gt;]?&lt;/code&gt;，第一个和最后一个颜色不用写&amp;lt;position&amp;gt;，中间的颜色如果不写的话，所有的颜色就会平均分布。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;径向渐变&lt;/strong&gt;：&lt;br&gt;&lt;code&gt;radial-gradient([ [ &amp;lt;shape&amp;gt; || &amp;lt;size&amp;gt; ] [ at &amp;lt;position&amp;gt; ]? , | at &amp;lt;position&amp;gt;, ]? &amp;lt;color-stop&amp;gt; [ , &amp;lt;color-stop&amp;gt; ]+)&lt;/code&gt;&lt;/p&gt;
