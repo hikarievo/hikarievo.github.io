@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://hikarievo.me/2016/05/21/20160521-detailed-introduction-of-background-properties/index.html">
 <meta property="og:site_name" content="喵窝">
 <meta property="og:description" content="background 属性是CSS中用于设置元素背景的属性，最简单的background属性名，是针对背景若干设定的合并简写，最早的CSS只能使用单一背景图片，而在现在却可以设置多个背景图片。而不用图片的话，最早的background只能使用纯色填充，现在却可以使用各种渐变效果。现在所用的模型来自于CSS Backgrounds and Borders Module Level 3所定义的规范，主">
-<meta property="og:updated_time" content="2016-06-04T08:34:44.359Z">
+<meta property="og:updated_time" content="2016-06-05T05:23:18.322Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS background 属性使用手册">
 <meta name="twitter:description" content="background 属性是CSS中用于设置元素背景的属性，最简单的background属性名，是针对背景若干设定的合并简写，最早的CSS只能使用单一背景图片，而在现在却可以设置多个背景图片。而不用图片的话，最早的background只能使用纯色填充，现在却可以使用各种渐变效果。现在所用的模型来自于CSS Backgrounds and Borders Module Level 3所定义的规范，主">
@@ -130,10 +130,10 @@ ga('send', 'pageview');
 <p>比如如下三行代码，就是等价的：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">radial-gradient</span>(<span class="selector-tag">yellow</span>, <span class="selector-tag">green</span>);</span><br><span class="line"><span class="selector-tag">radial-gradient</span>(<span class="selector-tag">ellipse</span> <span class="selector-tag">at</span> <span class="selector-tag">center</span>, <span class="selector-tag">yellow</span> 0%, <span class="selector-tag">green</span> 100%);</span><br><span class="line"><span class="selector-tag">radial-gradient</span>(<span class="selector-tag">farthest-corner</span> <span class="selector-tag">at</span> 50% 50%, <span class="selector-tag">yellow</span>, <span class="selector-tag">green</span>);</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p><strong>重复渐变</strong>：<code>repeating-linear-gradient()</code>和<code>repeating-radial-gradient()</code></p>
+</blockquote>
 <ul>
 <li>用法同上，只是这回是重复渐变了而已。<a href="http://bennettfeely.com/gradients/" title="CSS Gradients with background-blend-mode" target="_blank" rel="external">这里</a>有一些很漂亮的Demo，当然它主要是为展示<code>background-blend-mode</code>属性建立的。</li>
 </ul>
-</blockquote>
 <h2 id="背景重复之-background-repeat"><a href="#背景重复之-background-repeat" class="headerlink" title="背景重复之 background-repeat"></a>背景重复之 background-repeat</h2><p><code>background-repead</code>用于设置背景的重复方式，可选值有下面几种：</p>
 <ul>
 <li><code>no-repeat</code> 不重复，等价于<code>no-repeat no-repeat</code></li>
@@ -171,7 +171,7 @@ ga('send', 'pageview');
 </ul>
 <h2 id="变形金刚之-background"><a href="#变形金刚之-background" class="headerlink" title="变形金刚之 background"></a>变形金刚之 background</h2><p><code>background</code>是上面8个属性的总和…可以把所有属性写在一起。顺序不限，以空格隔开即可，但有几个需要注意的点：</p>
 <ul>
-<li>如果需要设定背景尺寸，写法是<code>&lt;position&gt;/&lt;size&gt;</code>，必须设定 <position> 的同时，以 / 分隔 <position> 和 <size>。</size></position></position></li>
+<li>如果需要设定背景尺寸，写法是<code>&lt;position&gt;/&lt;size&gt;</code>，必须设定 &lt;position&gt; 的同时，以 / 分隔 &lt;position&gt; 和 &lt;size&gt;。</li>
 <li><code>background-clip</code>和<code>background-origin</code>的属性，如果只写了一个值，那么会同时应用在两个属性上，如果写了两个值，那么前者是<code>background-origin</code>，而后者是<code>background-clip</code></li>
 <li>没有设置的会被设为默认值，之后也可以单独设置，这个和<code>padding</code>之类简写的方式相似。</li>
 </ul>
@@ -195,7 +195,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hikarievo.me/2016/05/21/20160521-detailed-introduction-of-background-properties/" data-id="cip0xssso000nosxe9hdr638z" class="article-share-link">分享</a>
+      <a data-url="http://hikarievo.me/2016/05/21/20160521-detailed-introduction-of-background-properties/" data-id="cip25i3zk000iocxec1m78lsi" class="article-share-link">分享</a>
       
       
         <a href="http://hikarievo.me/2016/05/21/20160521-detailed-introduction-of-background-properties/#ds-reset" class="article-comment-link ds-thread-count" data-thread-key="20160521-detailed-introduction-of-background-properties">留言</a>
@@ -244,7 +244,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">2016年 5月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">2016年 4月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">2016年 3月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">2015年 10月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">2015年 9月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">2015年 8月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">2015年 6月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">2015年 3月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">2015年 2月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">2015年 1月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">2014年 12月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">2014年 11月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">2014年 10月</a></li></ul>
     </div>
   </div>
 
@@ -253,27 +253,57 @@ ga('send', 'pageview');
     
   <div class="widget-wrap">
     <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
+    <div class="widget recent-posts">
       <ul>
         
           <li>
-            <a href="/2016/05/21/20160521-detailed-introduction-of-background-properties/">CSS background 属性使用手册</a>
+            <a href="/2016/05/21/20160521-detailed-introduction-of-background-properties/"> CSS background 属性使用手册</a>
+            <time datetime="2016-05-21T07:03:35.000Z" itemprop="datePublished">2016-05-21</time>
           </li>
         
           <li>
-            <a href="/2016/04/02/20160402-from-newbie-to-veteran/">从菜鸟到行家，从面条说起</a>
+            <a href="/2016/04/02/20160402-from-newbie-to-veteran/"> 从菜鸟到行家，从面条说起</a>
+            <time datetime="2016-04-02T06:20:25.000Z" itemprop="datePublished">2016-04-02</time>
           </li>
         
           <li>
-            <a href="/2016/03/18/20160318-leaner-responsive-images-with-client-hints/">【译】使用客户端查询托管响应式图片</a>
+            <a href="/2016/03/18/20160318-leaner-responsive-images-with-client-hints/"> 【译】使用客户端查询托管响应式图片</a>
+            <time datetime="2016-03-17T16:28:49.000Z" itemprop="datePublished">2016-03-18</time>
           </li>
         
           <li>
-            <a href="/2015/10/11/20151011-online-diagram-and-flow-chart/">在线创建美图表、流程图</a>
+            <a href="/2015/10/11/20151011-online-diagram-and-flow-chart/"> 在线创建美图表、流程图</a>
+            <time datetime="2015-10-11T02:41:04.000Z" itemprop="datePublished">2015-10-11</time>
           </li>
         
           <li>
-            <a href="/2015/09/03/20150903-lets-orienteering/">来一起玩定向吧 &gt;&lt;</a>
+            <a href="/2015/09/03/20150903-lets-orienteering/"> 来一起玩定向吧 &gt;&lt;</a>
+            <time datetime="2015-09-03T04:17:06.000Z" itemprop="datePublished">2015-09-03</time>
+          </li>
+        
+          <li>
+            <a href="/2015/08/26/20150826-which-is-my-dialog/"> 弹弹弹，弹出好多框框</a>
+            <time datetime="2015-08-26T11:05:43.000Z" itemprop="datePublished">2015-08-26</time>
+          </li>
+        
+          <li>
+            <a href="/2015/08/15/20150815-using-date-object/"> Date对象及其使用要点</a>
+            <time datetime="2015-08-15T08:48:16.000Z" itemprop="datePublished">2015-08-15</time>
+          </li>
+        
+          <li>
+            <a href="/2015/06/14/20150614-i-dont-know-cheese/"> 醍醐灌奶酪</a>
+            <time datetime="2015-06-14T05:52:05.000Z" itemprop="datePublished">2015-06-14</time>
+          </li>
+        
+          <li>
+            <a href="/2015/03/30/20150330-how-to-creat-a-print-page/"> 如何通过CSS设置打印页面</a>
+            <time datetime="2015-03-30T14:49:41.000Z" itemprop="datePublished">2015-03-30</time>
+          </li>
+        
+          <li>
+            <a href="/2015/03/17/20150317-the-games-i-played-in-my-childhood/"> 儿时玩过的那些深深伤害了我幼小心灵的游戏</a>
+            <time datetime="2015-03-17T10:58:16.000Z" itemprop="datePublished">2015-03-17</time>
           </li>
         
       </ul>

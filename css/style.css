@@ -649,13 +649,13 @@ a.article-title:hover {
   position: relative;
 }
 .article-entry hr:after {
-  font-family: font-icon-family;
+  font-family: icomoon;
   -webkit-font-smoothing: ;
   content: '\f00d';
   font-size: 18px;
   color: #ddd;
   position: absolute;
-  top: -0.9em;
+  top: -0.5em;
   left: 50%;
   text-shadow: 0.8em 0, -0.8em 0;
 }
@@ -1321,7 +1321,6 @@ pre .javascript .function {
 }
 .widget {
   color: #777;
-  text-shadow: 0 1px #e7f5fa;
   background: #ddd;
   border: 1px solid #ccc;
   padding: 15px;
@@ -1351,6 +1350,15 @@ pre .javascript .function {
   line-height: 1.6em;
   word-wrap: break-word;
   font-size: 0.9em;
+}
+.widget.recent-posts li {
+  overflow: hidden;
+  margin: 5px 0;
+}
+.widget.recent-posts time {
+  float: right;
+  font-size: 0.8em;
+  color: #929292;
 }
 .widget ul,
 .widget ol {
