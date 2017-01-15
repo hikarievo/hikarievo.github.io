@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hikarievo.me/"/>
-  <updated>2016-06-05T05:39:36.286Z</updated>
+  <updated>2017-01-15T10:05:42.265Z</updated>
   <id>http://hikarievo.me/</id>
   
   <author>
@@ -16,9 +16,40 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>如何快速学习前端</title>
+    <link href="http://hikarievo.me/2017/01/12/learning-f2e-at-udacity/"/>
+    <id>http://hikarievo.me/2017/01/12/learning-f2e-at-udacity/</id>
+    <published>2017-01-12T15:13:00.000Z</published>
+    <updated>2017-01-15T10:05:42.265Z</updated>
+    
+    <content type="html">&lt;p&gt;前阵子在找资料的时候，从Google Fundamental网站发现一个学习链接，点过去以后发现居然是一个中文网站，而且课程提供方居然是像Google、Facebook、Amazon这种级别的厂商。因为有免费试听，于是就开了一个前端学位，然后发现免费试听只有一周时间…于是就疯狂看了一周……&lt;/p&gt;
+&lt;p&gt;结论而言…这是我见过的网校（加上我听说过的培训班中）性价比最高的…这个名为&lt;strong&gt;&lt;a href=&quot;https://cn.udacity.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;优达学城&lt;/a&gt;&lt;/strong&gt;的网站，实际上是一个国际化的计算机技能培训（网校）……2017年的第一篇文，居然是没给广告费的网校广告（捂脸……），下面说一下这个网站的优点：&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;先说价格，网站提供包月和包年两种套餐，全年价格不足5000，而且最近的活动是，如果能在一年内完成所有课程，可以返还一半的学费…横向比较了一下其他比较火的网校（为什么他们都不在官网上贴价格…），随便一个三个月或者半年的培训班都是8000起跳，“名”校上万的也比比皆是。&lt;/p&gt;
+&lt;p&gt;内容的话…是从0基础一直讲到JS编程基础。HTML元素，语义化，CSS基础，布局，框架，JS入门，jQuery入门，数据类型，作用域，闭包，原型链，构造函数，函数类，性能优化，API…等等等等……这种内容量在国内的培训一般会拆成两到三个班，价格估计没有个两三万是搞不下来的。而且课程节奏非常快，按照课程规划，学员在3个月左右就能够掌握HTML与CSS还原简单静态网页的基本技巧，6个月的时候就开始学习原型链与构造函数了…这个节奏讲真比我自己学的时候还要快很多……不过野生半吊子都是三天两天，和这种系统规划过的课程没法比。&lt;/p&gt;
+&lt;p&gt;当然光凭这点性价比来说，根本不足以让我专门写一篇什么东西来推荐…什么内容紧贴实际项目这种屁话就不说了，它的每节课都有大量练习题和详细讲解，同时在每阶段课程的最后，都会提供一个项目，类似于大作业，需要整体提交代码，并且得到校方的反馈（这种反馈形式我就不晓得了…毕竟我一个都没有提交），宣传中宣称是有个性定制化的服务的，提交了总之是会有批改的吧。&lt;/p&gt;
+&lt;p&gt;同时在课程几个大阶段后（简单来看就是应用能力的不同阶段），都会提供一定的求职指导，包括如何准备简历，如何写求职信，如何面试等等，并提供专门的反馈服务（享受不到好可惜）。我简单看了几个关于面试失败的经验分享视频，也是非常有启发意义的…&lt;/p&gt;
+&lt;p&gt;最重要的最后说，以Google为首制作的这份课程中，在一开始就提出了“解决问题的能力”，这也是我在最近一年中倍感困扰的问题。身边的人非常缺乏解决问题的能力，让她照着抄似乎可以；但是让她发现问题的突破口，寻找合适的工具来解决问题，似乎是一种天方夜谭。这也是当前国内任何培训班都做不到的一点，也可以说是我国教育方式的通病。&lt;/p&gt;
+&lt;p&gt;而这份课程在一开始就反复强调，自己探寻和阅读文档很重要，尽量让自己在学习初期就体会到这种重要性，并且能够轻松地完成这些事。同时在课程的推进中，也在不断地使用各种参考资料，让学员自己学会探索。这种潜移默化的影响具体效果如何我不敢评价，但总比那些根本不知道有“文档”这种东西存在的人要好太多了。&lt;/p&gt;
+&lt;p&gt; 要坚持不懈地自己寻找答案，在努力寻找答案的过程中可以学到最多东西。如果遇到不理解的术语，花些时间理解它，使用外部资源补充学习内容和成为更独立的学习者很重要。你要钻研课程，例如在每天工作时阅读相关文档。因此，在这里你要确保，自己从一开始就觉得这样做很舒服。&lt;/p&gt;
+&lt;p&gt;学习对于前端开发者来说，就像吃饭一样，简单、自然。因为前端领域太过年轻，而风起云涌变化莫测，今天的潮流转眼就成了明日黄花，不把这种追逐当做乐趣，就还是不要学了。&lt;/p&gt;
+&lt;p&gt;哦对了关于这个Title…最快的方式当然是读文档…如果你有翻字典的爱好的话，读文档会很合口味。但是有一些编程思想和应用细节，还是买书比较合适。上课是我最不推荐也最不喜欢的学习方式，如果觉得自己一定要报个什么班才能学会的话，那就试试看这篇文章推荐的那个网站好了…。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前阵子在找资料的时候，从Google Fundamental网站发现一个学习链接，点过去以后发现居然是一个中文网站，而且课程提供方居然是像Google、Facebook、Amazon这种级别的厂商。因为有免费试听，于是就开了一个前端学位，然后发现免费试听只有一周时间…于是就疯狂看了一周……&lt;/p&gt;
+&lt;p&gt;结论而言…这是我见过的网校（加上我听说过的培训班中）性价比最高的…这个名为&lt;strong&gt;&lt;a href=&quot;https://cn.udacity.com/&quot;&gt;优达学城&lt;/a&gt;&lt;/strong&gt;的网站，实际上是一个国际化的计算机技能培训（网校）……2017年的第一篇文，居然是没给广告费的网校广告（捂脸……），下面说一下这个网站的优点：&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="杂谈" scheme="http://hikarievo.me/tags/%E6%9D%82%E8%B0%88/"/>
+    
+  </entry>
+  
+  <entry>
     <title>CSS background 属性使用手册</title>
-    <link href="http://hikarievo.me/2016/05/21/20160521-detailed-introduction-of-background-properties/"/>
-    <id>http://hikarievo.me/2016/05/21/20160521-detailed-introduction-of-background-properties/</id>
+    <link href="http://hikarievo.me/2016/05/21/detailed-introduction-of-background-properties/"/>
+    <id>http://hikarievo.me/2016/05/21/detailed-introduction-of-background-properties/</id>
     <published>2016-05-21T07:03:35.000Z</published>
     <updated>2016-06-05T05:39:36.286Z</updated>
     
@@ -126,8 +157,8 @@
   
   <entry>
     <title>从菜鸟到行家，从面条说起</title>
-    <link href="http://hikarievo.me/2016/04/02/20160402-from-newbie-to-veteran/"/>
-    <id>http://hikarievo.me/2016/04/02/20160402-from-newbie-to-veteran/</id>
+    <link href="http://hikarievo.me/2016/04/02/from-newbie-to-veteran/"/>
+    <id>http://hikarievo.me/2016/04/02/from-newbie-to-veteran/</id>
     <published>2016-04-02T06:20:25.000Z</published>
     <updated>2016-06-04T05:48:42.250Z</updated>
     
@@ -163,8 +194,8 @@
   
   <entry>
     <title>【译】使用客户端查询托管响应式图片</title>
-    <link href="http://hikarievo.me/2016/03/18/20160318-leaner-responsive-images-with-client-hints/"/>
-    <id>http://hikarievo.me/2016/03/18/20160318-leaner-responsive-images-with-client-hints/</id>
+    <link href="http://hikarievo.me/2016/03/18/leaner-responsive-images-with-client-hints/"/>
+    <id>http://hikarievo.me/2016/03/18/leaner-responsive-images-with-client-hints/</id>
     <published>2016-03-17T16:28:49.000Z</published>
     <updated>2016-03-17T17:18:53.470Z</updated>
     
@@ -281,8 +312,8 @@
   
   <entry>
     <title>在线创建美图表、流程图</title>
-    <link href="http://hikarievo.me/2015/10/11/20151011-online-diagram-and-flow-chart/"/>
-    <id>http://hikarievo.me/2015/10/11/20151011-online-diagram-and-flow-chart/</id>
+    <link href="http://hikarievo.me/2015/10/11/online-diagram-and-flow-chart/"/>
+    <id>http://hikarievo.me/2015/10/11/online-diagram-and-flow-chart/</id>
     <published>2015-10-11T02:41:04.000Z</published>
     <updated>2015-10-11T04:12:34.462Z</updated>
     
@@ -341,8 +372,8 @@
   
   <entry>
     <title>来一起玩定向吧 &gt;&lt;</title>
-    <link href="http://hikarievo.me/2015/09/03/20150903-lets-orienteering/"/>
-    <id>http://hikarievo.me/2015/09/03/20150903-lets-orienteering/</id>
+    <link href="http://hikarievo.me/2015/09/03/lets-orienteering/"/>
+    <id>http://hikarievo.me/2015/09/03/lets-orienteering/</id>
     <published>2015-09-03T04:17:06.000Z</published>
     <updated>2015-09-03T05:13:18.687Z</updated>
     
@@ -371,8 +402,8 @@
   
   <entry>
     <title>弹弹弹，弹出好多框框</title>
-    <link href="http://hikarievo.me/2015/08/26/20150826-which-is-my-dialog/"/>
-    <id>http://hikarievo.me/2015/08/26/20150826-which-is-my-dialog/</id>
+    <link href="http://hikarievo.me/2015/08/26/which-is-my-dialog/"/>
+    <id>http://hikarievo.me/2015/08/26/which-is-my-dialog/</id>
     <published>2015-08-26T11:05:43.000Z</published>
     <updated>2016-06-04T05:49:16.138Z</updated>
     
@@ -430,8 +461,8 @@
   
   <entry>
     <title>Date对象及其使用要点</title>
-    <link href="http://hikarievo.me/2015/08/15/20150815-using-date-object/"/>
-    <id>http://hikarievo.me/2015/08/15/20150815-using-date-object/</id>
+    <link href="http://hikarievo.me/2015/08/15/using-date-object/"/>
+    <id>http://hikarievo.me/2015/08/15/using-date-object/</id>
     <published>2015-08-15T08:48:16.000Z</published>
     <updated>2015-08-15T12:46:51.173Z</updated>
     
@@ -474,8 +505,8 @@
   
   <entry>
     <title>醍醐灌奶酪</title>
-    <link href="http://hikarievo.me/2015/06/14/20150614-i-dont-know-cheese/"/>
-    <id>http://hikarievo.me/2015/06/14/20150614-i-dont-know-cheese/</id>
+    <link href="http://hikarievo.me/2015/06/14/i-dont-know-cheese/"/>
+    <id>http://hikarievo.me/2015/06/14/i-dont-know-cheese/</id>
     <published>2015-06-14T05:52:05.000Z</published>
     <updated>2015-06-17T14:54:58.144Z</updated>
     
@@ -534,8 +565,8 @@
   
   <entry>
     <title>如何通过CSS设置打印页面</title>
-    <link href="http://hikarievo.me/2015/03/30/20150330-how-to-creat-a-print-page/"/>
-    <id>http://hikarievo.me/2015/03/30/20150330-how-to-creat-a-print-page/</id>
+    <link href="http://hikarievo.me/2015/03/30/how-to-creat-a-print-page/"/>
+    <id>http://hikarievo.me/2015/03/30/how-to-creat-a-print-page/</id>
     <published>2015-03-30T14:49:41.000Z</published>
     <updated>2015-04-11T08:13:34.109Z</updated>
     
@@ -571,8 +602,8 @@
   
   <entry>
     <title>儿时玩过的那些深深伤害了我幼小心灵的游戏</title>
-    <link href="http://hikarievo.me/2015/03/17/20150317-the-games-i-played-in-my-childhood/"/>
-    <id>http://hikarievo.me/2015/03/17/20150317-the-games-i-played-in-my-childhood/</id>
+    <link href="http://hikarievo.me/2015/03/17/the-games-i-played-in-my-childhood/"/>
+    <id>http://hikarievo.me/2015/03/17/the-games-i-played-in-my-childhood/</id>
     <published>2015-03-17T10:58:16.000Z</published>
     <updated>2015-03-25T15:31:02.920Z</updated>
     
@@ -607,8 +638,8 @@
   
   <entry>
     <title>神奇的伪元素content属性</title>
-    <link href="http://hikarievo.me/2015/03/11/20150311-pseudo-elements-content/"/>
-    <id>http://hikarievo.me/2015/03/11/20150311-pseudo-elements-content/</id>
+    <link href="http://hikarievo.me/2015/03/11/pseudo-elements-content/"/>
+    <id>http://hikarievo.me/2015/03/11/pseudo-elements-content/</id>
     <published>2015-03-11T14:06:25.000Z</published>
     <updated>2015-03-12T17:34:16.631Z</updated>
     
@@ -661,8 +692,8 @@
   
   <entry>
     <title>当我谈论工作时我谈论什么</title>
-    <link href="http://hikarievo.me/2015/02/18/20150218-what-i-talk-about-when-i-talk-about-employment/"/>
-    <id>http://hikarievo.me/2015/02/18/20150218-what-i-talk-about-when-i-talk-about-employment/</id>
+    <link href="http://hikarievo.me/2015/02/18/what-i-talk-about-when-i-talk-about-employment/"/>
+    <id>http://hikarievo.me/2015/02/18/what-i-talk-about-when-i-talk-about-employment/</id>
     <published>2015-02-18T03:45:07.000Z</published>
     <updated>2015-03-15T16:58:09.653Z</updated>
     
@@ -691,8 +722,8 @@
   
   <entry>
     <title>《用户体验要素》读后</title>
-    <link href="http://hikarievo.me/2015/01/21/20150121-impression-of-elements-of-UX/"/>
-    <id>http://hikarievo.me/2015/01/21/20150121-impression-of-elements-of-UX/</id>
+    <link href="http://hikarievo.me/2015/01/21/impression-of-elements-of-UX/"/>
+    <id>http://hikarievo.me/2015/01/21/impression-of-elements-of-UX/</id>
     <published>2015-01-21T12:50:59.000Z</published>
     <updated>2015-01-21T15:38:45.409Z</updated>
     
@@ -1048,70 +1079,6 @@
     
     
       <category term="CSS" scheme="http://hikarievo.me/tags/CSS/"/>
-    
-      <category term="初心者" scheme="http://hikarievo.me/tags/%E5%88%9D%E5%BF%83%E8%80%85/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>给设计师们的代码指南（番外）—— 我的代码问题在哪</title>
-    <link href="http://hikarievo.me/2014/11/06/a-code-guide-to-designers-e1/"/>
-    <id>http://hikarievo.me/2014/11/06/a-code-guide-to-designers-e1/</id>
-    <published>2014-11-06T13:52:03.000Z</published>
-    <updated>2014-11-09T15:15:25.593Z</updated>
-    
-    <content type="html">&lt;p&gt;这是一篇番外，主要用于平复一下回家以后面对堆成山的工作的我那从天堂掉到地狱般伤痛的心情…&lt;/p&gt;
-&lt;p&gt;很多人在写代码的时候都会遇到这个问题，就是“为什么我的 CSS 没效果？”、“为什么我的 CSS 出来跟我写的不一样？”，而在看别人的页面的时候，我们有时也会想要知道，“哇噢，这么炫酷，他是怎么做的”或者“这里究竟是padding还是margin？”等等问题，其实这些问题都可以自己找到答案，方法则是使用浏览器自带的开发者工具。&lt;/p&gt;
-&lt;p&gt;现在的主流浏览器都配有开发者工具，只要按下F12就可以打开，所有的前端工程师都会使用这个工具来调试自己的页面，其实里面的功能是非常非常强大的。下面我将以Chrome为代表介绍，其它浏览的工具大同小异，看一下就会啦~~&lt;/p&gt;
-&lt;p&gt;PS:本文属于番外，可能有前文中尚未涉及的内容…不必惊慌反正你总有一天会学到的~&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;#调试窗口&lt;/p&gt;
-&lt;p&gt;首先在你想要查看的元素上点击右键–&amp;gt;审查元素（如果网页禁止了右键，可以直接按F12），此时浏览器会被分割开来弹出一个调试窗口（下图右侧）。当然如果你使用了最新版的Chrome，默认弹出的窗口会在模拟器状态，主要用于手机、平板和响应式设计的代码调试，如果不需要的话可以点击调试菜单左上角的手机小图标（下图橙色区域左边数第二个）关掉该模式。&lt;/p&gt;
-&lt;p&gt;而如果你的调试窗口出现在了屏幕下方，可以点击调试菜单右上角的分屏图标（下图橙色区域右数第二个）。我个人比较推崇这种左右布局，比较方便检索。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://hikarievo.qiniudn.com/code-guide/e1-1.png&quot; alt=&quot;&quot; title=&quot;感谢优设被我抓来当例子…&quot;&gt;&lt;/p&gt;
-&lt;p&gt;整个右半边的窗口就是调试窗口，根据其功能我大致划分成了4个区。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;菜单栏（橙色）&lt;/li&gt;
-&lt;li&gt;DOM结构（绿色）&lt;/li&gt;
-&lt;li&gt;元素信息（紫色）&lt;/li&gt;
-&lt;li&gt;元素布局（黄色）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;菜单栏&quot;&gt;&lt;a href=&quot;#菜单栏&quot; class=&quot;headerlink&quot; title=&quot;菜单栏&quot;&gt;&lt;/a&gt;菜单栏&lt;/h2&gt;&lt;p&gt;菜单栏在前文已经介绍了两个功能——切换设备模式和切换调试窗口位置。其实中间那些英文单词的标签，对于前端样式调试来说都是用不到的。而最重要的可能就是菜单中的第一个“放大镜”工具（在某些浏览器中可能显示为一个标靶的样子）。&lt;/p&gt;
-&lt;p&gt;单击一下放大镜，图标会变为蓝色（此时便为激活状态），然后把鼠标移动到左侧的页面中，你会发现鼠标所到之处的元素会被或蓝或绿或黄的颜色高亮，当它高亮到你想要查看的元素时，单击左键，调试工具就会自动帮你定位元素并获取相关信息了。&lt;/p&gt;
-&lt;h2 id=&quot;DOM结构树&quot;&gt;&lt;a href=&quot;#DOM结构树&quot; class=&quot;headerlink&quot; title=&quot;DOM结构树&quot;&gt;&lt;/a&gt;DOM结构树&lt;/h2&gt;&lt;p&gt;你可以简单地把DOM结构理解为网页的源代码，但它是以“元素”为单位进行管理的。&lt;/p&gt;
-&lt;p&gt;在我们选中某个元素之后，在这个DOM结构窗口中的对应代码就会被高亮，意思是说，我们在查看这个元素的信息。在截图中，我选中的是轮播图下方的小广告的第一张。&lt;/p&gt;
-&lt;p&gt;在某些情况下，使用放大镜工具是无法选中你想要的元素的（还记得网页元素的层层叠层层吗？这个工具只能帮我们选中鼠标所在的最上面那一层，下面的是选不到的）。这种时候你就要在DOM窗口中手动寻找~&lt;/p&gt;
-&lt;p&gt;另外当你鼠标在DOM结构上移动的时候，鼠标所指向的对应的元素同样会在左侧的窗口中高亮。&lt;/p&gt;
-&lt;h2 id=&quot;元素信息&quot;&gt;&lt;a href=&quot;#元素信息&quot; class=&quot;headerlink&quot; title=&quot;元素信息&quot;&gt;&lt;/a&gt;元素信息&lt;/h2&gt;&lt;p&gt;有Styles、Event Listeners等等标签，当然其他的我们也用不到，只要看 Styles 就可以了。&lt;/p&gt;
-&lt;p&gt;在这里我们会发现代码被分成了若干行。第一行为element.style，意思是行内样式（也就是写在元素内style属性中的样式），后面的若干行是该元素的样式来源，依据不同的选择器而分开。&lt;/p&gt;
-&lt;h2 id=&quot;元素布局&quot;&gt;&lt;a href=&quot;#元素布局&quot; class=&quot;headerlink&quot; title=&quot;元素布局&quot;&gt;&lt;/a&gt;元素布局&lt;/h2&gt;&lt;p&gt;如果你的调试窗口是在屏幕下方，那么这个区域会出现在元素信息之后，我觉得对于设计师来说，这个区块可能是最最重要（也是易懂的）。&lt;/p&gt;
-&lt;p&gt;它首先展示了该元素的盒模型，蓝色是内容区域，数字表示宽度和高度，我截图的这个元素没有&lt;code&gt;padding&lt;/code&gt;、&lt;code&gt;border&lt;/code&gt;和&lt;code&gt;margin&lt;/code&gt;，所以它们都是“-”，如果任意一个属性有被赋值（只要不是0），对应的位置就会显示数字。&lt;/p&gt;
-&lt;p&gt;而它下面展示的就是应用在该元素上的所有样式属性（Show inherited properties是显示继承属性，偶尔，如果你找不到你想找的元素，可以勾上这个选框）。&lt;/p&gt;
-&lt;h1 id=&quot;查看、排查与调试&quot;&gt;&lt;a href=&quot;#查看、排查与调试&quot; class=&quot;headerlink&quot; title=&quot;查看、排查与调试&quot;&gt;&lt;/a&gt;查看、排查与调试&lt;/h1&gt;&lt;p&gt;代码不生效有无限种可能，所以我们也要有一定的顺序。&lt;/p&gt;
-&lt;h2 id=&quot;是谁的样式&quot;&gt;&lt;a href=&quot;#是谁的样式&quot; class=&quot;headerlink&quot; title=&quot;是谁的样式&quot;&gt;&lt;/a&gt;是谁的样式&lt;/h2&gt;&lt;p&gt;在我上面的截图中，我们看到&lt;code&gt;img&lt;/code&gt;元素的属性中并没有margin或者padding值，但是它与它上下左右的元素都不挨着，如果我们想知道是哪个元素的哪个属性造成了这种状况，我们就需要在 DOM 树中向上查找，查看&lt;code&gt;img&lt;/code&gt;的父元素、祖先元素。&lt;/p&gt;
-&lt;p&gt;一路向上，发现&lt;code&gt;li&lt;/code&gt;元素中有&lt;code&gt;margin-right&lt;/code&gt;属性，正是这个属性值造成了图片右边的间隙。当然你们可以用相似的方法找一找，这张图片上边、下边及左侧的间隙是谁造成的。&lt;/p&gt;
-&lt;h2 id=&quot;样式被应用了吗？&quot;&gt;&lt;a href=&quot;#样式被应用了吗？&quot; class=&quot;headerlink&quot; title=&quot;样式被应用了吗？&quot;&gt;&lt;/a&gt;样式被应用了吗？&lt;/h2&gt;&lt;p&gt;选中你的元素，在“元素信息”中查看选择器，比如你为那个元素写了一个名为 foo 的 class，那你在窗口中找到 .foo 了吗？&lt;/p&gt;
-&lt;p&gt;如果没有，要么是你 html 中的 class 拼错了，要么是你的 css 文件中有拼写错误或者语法错误（比如该写的反括号没有写，分号冒号写错了等等…）&lt;/p&gt;
-&lt;h2 id=&quot;样式应用了却不生效？&quot;&gt;&lt;a href=&quot;#样式应用了却不生效？&quot; class=&quot;headerlink&quot; title=&quot;样式应用了却不生效？&quot;&gt;&lt;/a&gt;样式应用了却不生效？&lt;/h2&gt;&lt;p&gt;你可能会注意到了，元素信息中有些样式被划了横线，还有一些是灰色的。灰色代表浏览器不识别（比如 webkit 内核的 Chrome 是无法识别 -moz- 前缀的 css 属性的。划了横线则代表该属性被覆盖。&lt;/p&gt;
-&lt;p&gt;CSS 有其一系列的优先级设置，当然详细说起来就话太长太长了，各位可以随用随百度。这里要提醒一句的是，&lt;code&gt;!important&lt;/code&gt;虽然很万能流逼，但是覆盖起来太困难了（这是优先级处于核弹级别的语句），js都奈何不了，所以一定要慎用慎用（能不用就别用…）&lt;/p&gt;
-&lt;p&gt;如果想知道属性是被谁覆盖的，则可以在右侧布局信息的下方，找到你想查看的属性，点击打开下拉三角，就会出现所有在该元素上生效的属性，当然只有最上面一条显示了，而下面的若干条都会被划上横线，属性的右侧会有该属性来源的 css 文件。在使用了 css 框架或者多个 css 文件的时候，这个工具会帮你快速定位到出问题的属性。&lt;/p&gt;
-&lt;p&gt;还有一种情况，是在样式属性前面出现了一个黄色三角的警示标志，那意思就是…你拼错啦 -v- &lt;/p&gt;
-&lt;h2 id=&quot;调试&quot;&gt;&lt;a href=&quot;#调试&quot; class=&quot;headerlink&quot; title=&quot;调试&quot;&gt;&lt;/a&gt;调试&lt;/h2&gt;&lt;p&gt;你还在修改文件，保存，F5的调试过程吗？那你是在太~~~OUT了！试着在元素信息窗口中的 element.style 里单击一下，这时会出现一个输入框。随便输入一个属性比如…宽度（width），当你输入了 wi 几个字之后，它就会帮你自动补上了！有没有！很流逼！！然后回车，此时属性名已经帮你输入好，输入框弹到了冒号后面，在这里输入属性值，再次回车。有没有觉得，调试本应该如此轻松直观？&lt;/p&gt;
-&lt;p&gt;当然你也可以点击属性前面的小勾勾，临时禁用某一个属性。浏览器甚至允许你临时新建一个类，点击element.style最右边的加号，你就可以输入选择器，并输入属性。添加、修改、删除，都可以在浏览器中完成，并且操作直观。&lt;/p&gt;
-&lt;p&gt;在你完成调整之后，把对应的值抄回去就行了……呃对，浏览器只能帮你查看效果，但是不能帮你保存，当你刷新页面之后，你之前输入的所有内容就都消失了。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;这是一篇番外，主要用于平复一下回家以后面对堆成山的工作的我那从天堂掉到地狱般伤痛的心情…&lt;/p&gt;
-&lt;p&gt;很多人在写代码的时候都会遇到这个问题，就是“为什么我的 CSS 没效果？”、“为什么我的 CSS 出来跟我写的不一样？”，而在看别人的页面的时候，我们有时也会想要知道，“哇噢，这么炫酷，他是怎么做的”或者“这里究竟是padding还是margin？”等等问题，其实这些问题都可以自己找到答案，方法则是使用浏览器自带的开发者工具。&lt;/p&gt;
-&lt;p&gt;现在的主流浏览器都配有开发者工具，只要按下F12就可以打开，所有的前端工程师都会使用这个工具来调试自己的页面，其实里面的功能是非常非常强大的。下面我将以Chrome为代表介绍，其它浏览的工具大同小异，看一下就会啦~~&lt;/p&gt;
-&lt;p&gt;PS:本文属于番外，可能有前文中尚未涉及的内容…不必惊慌反正你总有一天会学到的~&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="工具" scheme="http://hikarievo.me/tags/%E5%B7%A5%E5%85%B7/"/>
     
       <category term="初心者" scheme="http://hikarievo.me/tags/%E5%88%9D%E5%BF%83%E8%80%85/"/>
     
