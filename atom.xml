@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hikarievo.me/"/>
-  <updated>2017-01-26T11:56:08.101Z</updated>
+  <updated>2017-02-02T12:18:08.143Z</updated>
   <id>http://hikarievo.me/</id>
   
   <author>
@@ -14,6 +14,64 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>纯CSS画六围图</title>
+    <link href="http://hikarievo.me/2017/02/02/draw-pure-css-hexagon-radar-chart/"/>
+    <id>http://hikarievo.me/2017/02/02/draw-pure-css-hexagon-radar-chart/</id>
+    <published>2017-02-02T08:05:50.000Z</published>
+    <updated>2017-02-02T12:18:08.143Z</updated>
+    
+    <content type="html">&lt;p&gt;最近做游戏资料经常要描述六围，现在比较流行的做法就是用六围图，但是资料库系统限制导致外挂JS库或者JS代码比较麻烦，何况秉承着能用CSS绝不用JS的思路，于是想着看能不能用CSS做六围图…&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://www.nintendo.com.hk/pressrelease/images/20170124_pokemon_bank_update/vc_poke_transfer_ss4.jpg&quot; alt=&quot;就不告诉你是什么游戏&quot;&gt;&lt;/p&gt;
+&lt;p&gt;做出来差不多就是这样了：&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;p data-height=&quot;265&quot; data-theme-id=&quot;light&quot; data-slug-hash=&quot;KaowyW&quot; data-default-tab=&quot;result&quot; data-user=&quot;hikarievo&quot; data-embed-version=&quot;2&quot; data-pen-title=&quot;Pure CSS hexagon radar chart&quot; class=&quot;codepen&quot;&gt;在&lt;a href=&quot;http://codepen.io&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CodePen&lt;/a&gt;上查看&lt;a href=&quot;http://codepen.io/hikarievo/pen/KaowyW/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;纯CSS六边形雷达图&lt;/a&gt;(&lt;a href=&quot;http://codepen.io/hikarievo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;@hikarievo&lt;/a&gt;)。&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
+&lt;script async src=&quot;https://production-assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;顺带一提，这玩意儿的学名叫雷达图…我搜什么六边形图标啊六围图啊都搜不到快急死我了……&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;基本思路&quot;&gt;&lt;a href=&quot;#基本思路&quot; class=&quot;headerlink&quot; title=&quot;基本思路&quot;&gt;&lt;/a&gt;基本思路&lt;/h2&gt;&lt;p&gt;六围图通常是一个不规则六边形（6V选手一边去），我们已知的值就是顶点到中心的距离，而将所有的顶点与中心点连接起来之后，我们就得到了6个已知的三角形（已知两个邻边长度及其夹角就可以确定一个三角形…如果背过三角形相似/全等规则的话大概会想起SAS）。&lt;/p&gt;
+&lt;p&gt;CSS画三角本身并不困难，使用一个DOM元素加上一些CSS代码就&lt;a href=&quot;http://triangle.designyourcode.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;可以画出任意三角形&lt;/a&gt;。但是这些三角形要么无法固定夹角度数，要么无法满足邻边长度的要求（简单来说，就是无法画出钝角三角形），所以我将目光转移到了CSS &lt;code&gt;transform&lt;/code&gt;。如果先画出一个邻边长度满足要求的直角三角形，再把直角扭成所需圆心角的度数不就OK了嘛。一开始我想用&lt;code&gt;skew()&lt;/code&gt;来解决这个问题，但是&lt;code&gt;skew()&lt;/code&gt;是斜切，也就是说，在保持DOM面积不变（高度不变）的情况下，倾斜元素。但是我需要的是&lt;strong&gt;保持两边边长不变，倾斜元素&lt;/strong&gt;…所以已知的CSS &lt;code&gt;transform&lt;/code&gt;简易方法都阵亡了。于是只好祭出&lt;code&gt;transform&lt;/code&gt;的最终杀器——&lt;code&gt;matrix()&lt;/code&gt;（&lt;del&gt;黑客帝国&lt;/del&gt;矩阵变换），理论上&lt;code&gt;matrix()&lt;/code&gt;可以完成任何线性变换，非常适合这种场合。 &lt;/p&gt;
+&lt;p&gt;基本操作思路如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;按照给定边长绘制直角三角形。&lt;/li&gt;
+&lt;li&gt;使用&lt;code&gt;matrix()&lt;/code&gt;将直角三角形的直角扭成所需的圆心角。&lt;/li&gt;
+&lt;li&gt;依次旋转所得的三角形。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;计算矩阵&quot;&gt;&lt;a href=&quot;#计算矩阵&quot; class=&quot;headerlink&quot; title=&quot;计算矩阵&quot;&gt;&lt;/a&gt;计算矩阵&lt;/h2&gt;&lt;p&gt;…思路就是要跳跃，画直角三角形随便摆弄一下上面的&lt;a href=&quot;http://triangle.designyourcode.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;生成器&lt;/a&gt;就能搞定了。问题在于矩阵要怎么办…矩阵变换听起来挺复杂的，其实只要搞明白写法就OK了。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;matrix()&lt;/code&gt;需要提供6个参数，从a到f，转换成矩阵如下图：&lt;br&gt;&lt;img src=&quot;https://dev.opera.com/articles/understanding-the-css-transforms-matrix/5.png&quot; alt=&quot;来自dev.opera&quot;&gt;&lt;br&gt;转换成我们熟悉的方式写成方程组的话，就是：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;x’=ax+cy+e&lt;br&gt;y’=bx+dy+f&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;然后我们的变换是这样的（画的平行四边形，真正的三角形只有它的一半…这个工具还不太会用2333）：&lt;/p&gt;
+&lt;iframe src=&quot;https://www.desmos.com/calculator/aq6fzanjyh?embed&quot; width=&quot;90%&quot; height=&quot;250px&quot; style=&quot;border: 1px solid #ccc&quot; frameborder=&quot;0&quot;&gt;
+
+&lt;p&gt;在这里我出了点小小的思路上的问题，在准备这篇文章的时候才发现…主要是我还保留着&lt;code&gt;skew()&lt;/code&gt;的思路，而且当时心想着反正都是转，转几圈都是转…导致多转了一次，这个回头说。&lt;/p&gt;
+&lt;p&gt;根据上面的图解出来（解方程的时候发生了一场惨剧…按习惯画坐标轴都是右上为正，左下为负，可是我忘了！忘了！CSS渲染下的Y轴方向是向下的！向下的！！导致我对着一个方程算了俩钟头，怎么算都是反的！！）：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;x’=x-Sinθ y&lt;br&gt;y’=Cosθ y&lt;br&gt;matrix(1,0,-Sinθ,Cosθ,0,0)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;因为六边形的圆心角是60度，所以θ是30度。代入得到&lt;code&gt;matrix(1,0,-0.5,(√3)/2)&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&quot;旋转代入&quot;&gt;&lt;a href=&quot;#旋转代入&quot; class=&quot;headerlink&quot; title=&quot;旋转代入&quot;&gt;&lt;/a&gt;旋转代入&lt;/h2&gt;&lt;p&gt;CSS &lt;code&gt;transform&lt;/code&gt;有一个&lt;code&gt;transform-origin&lt;/code&gt;属性，可以规定元素变换的&lt;strong&gt;原点&lt;/strong&gt;。对于前面所示的情况，显然是以我们的已知角——左下角为原点代入最合适。CSS旋转本身可以用&lt;code&gt;rotate()&lt;/code&gt;，但是我直接测试的结果是它总转不到该转的地方，一不做二不休，干脆直接乘进去算了…&lt;/p&gt;
+&lt;p&gt;旋转的矩阵是这样的，角度为逆时针：&lt;br&gt;!(来自PolymathProgrammer)[&lt;a href=&quot;http://polymathprogrammer.com/images/blog/200809/rotationmatrix2d.png&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://polymathprogrammer.com/images/blog/200809/rotationmatrix2d.png&lt;/a&gt;]&lt;/p&gt;
+&lt;p&gt;因此对应六围图右上角那个三角的位置，旋转角度应该是30°，接下来的三角形依次旋转60°就可以了&lt;/p&gt;
+&lt;/iframe&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近做游戏资料经常要描述六围，现在比较流行的做法就是用六围图，但是资料库系统限制导致外挂JS库或者JS代码比较麻烦，何况秉承着能用CSS绝不用JS的思路，于是想着看能不能用CSS做六围图…&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://www.nintendo.com.hk/pressrelease/images/20170124_pokemon_bank_update/vc_poke_transfer_ss4.jpg&quot; alt=&quot;就不告诉你是什么游戏&quot;&gt;&lt;/p&gt;
+&lt;p&gt;做出来差不多就是这样了：&lt;/p&gt;
+&lt;p&gt;&lt;p data-height=&quot;265&quot; data-theme-id=&quot;light&quot; data-slug-hash=&quot;KaowyW&quot; data-default-tab=&quot;result&quot; data-user=&quot;hikarievo&quot; data-embed-version=&quot;2&quot; data-pen-title=&quot;Pure CSS hexagon radar chart&quot; class=&quot;codepen&quot;&gt;在&lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;上查看&lt;a href=&quot;http://codepen.io/hikarievo/pen/KaowyW/&quot;&gt;纯CSS六边形雷达图&lt;/a&gt;(&lt;a href=&quot;http://codepen.io/hikarievo&quot;&gt;@hikarievo&lt;/a&gt;)。&lt;/p&gt;&lt;/p&gt;
+&lt;script async src=&quot;https://production-assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;顺带一提，这玩意儿的学名叫雷达图…我搜什么六边形图标啊六围图啊都搜不到快急死我了……&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="CSS" scheme="http://hikarievo.me/tags/CSS/"/>
+    
+  </entry>
   
   <entry>
     <title>使用CSS改变DOM元素顺序</title>
@@ -425,11 +483,11 @@
     </summary>
     
     
-      <category term="设计" scheme="http://hikarievo.me/tags/%E8%AE%BE%E8%AE%A1/"/>
-    
       <category term="工具" scheme="http://hikarievo.me/tags/%E5%B7%A5%E5%85%B7/"/>
     
       <category term="推荐" scheme="http://hikarievo.me/tags/%E6%8E%A8%E8%8D%90/"/>
+    
+      <category term="设计" scheme="http://hikarievo.me/tags/%E8%AE%BE%E8%AE%A1/"/>
     
   </entry>
   
@@ -952,9 +1010,9 @@
     </summary>
     
     
-      <category term="设计" scheme="http://hikarievo.me/tags/%E8%AE%BE%E8%AE%A1/"/>
-    
       <category term="工具" scheme="http://hikarievo.me/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="设计" scheme="http://hikarievo.me/tags/%E8%AE%BE%E8%AE%A1/"/>
     
   </entry>
   
@@ -1001,74 +1059,6 @@
       <category term="杂谈" scheme="http://hikarievo.me/tags/%E6%9D%82%E8%B0%88/"/>
     
       <category term="考据" scheme="http://hikarievo.me/tags/%E8%80%83%E6%8D%AE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>列元素所用属性之谜</title>
-    <link href="http://hikarievo.me/2014/11/24/the-mystery-of-properties-apply-to-table-columns/"/>
-    <id>http://hikarievo.me/2014/11/24/the-mystery-of-properties-apply-to-table-columns/</id>
-    <published>2014-11-24T13:48:17.000Z</published>
-    <updated>2014-11-24T15:01:08.342Z</updated>
-    
-    <content type="html">&lt;p&gt;在&lt;code&gt;table&lt;/code&gt;表格元素中，有一个&lt;code&gt;col&lt;/code&gt;元素（它还有一个孪生胞兄&lt;code&gt;colgroup&lt;/code&gt;元素），在 W3C 标准中，这个元素被称为列元素，用于定义表格中的某些列中的表现形式，在现行及常见的教程中，认为col元素可以使用常见的全局属性，以及&lt;code&gt;align&lt;/code&gt;、&lt;code&gt;valign&lt;/code&gt;、&lt;code&gt;width&lt;/code&gt;等属性（乃至&lt;a href=&quot;http://www.w3.org/TR/html401/struct/tables.html#h-11.2.4&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;HTML 4.1&lt;/a&gt; 及 &lt;a href=&quot;http://www.w3.org/TR/html5/tabular-data.html#the-col-element&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;5.0 规范文档&lt;/a&gt;中，也同意该元素可以使用全局属性），很多DEMO也用它来举例说明如何让表格中的某列居中对齐、右对齐或改变某列的文字颜色，而事实上在大家常年的实践中，已经证明了一个很恐怖的事情…&lt;code&gt;align&lt;/code&gt;也好&lt;code&gt;valign&lt;/code&gt;也罢，甚至连全局属性中的&lt;code&gt;color&lt;/code&gt;属性都完全不起作用，这到底是发生了什么事。&lt;/p&gt;
-&lt;p&gt;照例先上结论：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;在 CSS 2 中，列元素就仅能使用&lt;code&gt;border&lt;/code&gt;、&lt;code&gt;background&lt;/code&gt;、&lt;code&gt;width&lt;/code&gt;及&lt;code&gt;visibility&lt;/code&gt;这四个属性，其它属性（如对齐及字色都无法生效）。&lt;/li&gt;
-&lt;li&gt;IE6、IE7及IE8(Q)遵循常见教程，可以使用各种对齐和文字相关设置。&lt;/li&gt;
-&lt;li&gt;IE9开始及现在所有常用非IE浏览器均支持&lt;code&gt;:nth-child(n)&lt;/code&gt;选择器，可以用该选择器实现列选择，并支持所有全局 CSS 属性。&lt;/li&gt;
-&lt;li&gt;IE8(S)无解（因为它不支持上述选择器），除第一条所描述的 4 个 CSS 属性之外，无法统一改变列的对齐及字色。&lt;/li&gt;
-&lt;li&gt;而&lt;code&gt;col&lt;/code&gt;及&lt;code&gt;colgroup&lt;/code&gt;元素，除了对IE6、7、8进行兼容之外，已经没用了。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;为什么，这究竟是为什么……&lt;/p&gt;
-&lt;p&gt;从比较简单而明显的角度说，所有元素的属性在未定义的情况下，都是“继承”，也就是与其父元素属性相同。而表格的 HTML 书写方式，是以行为基础的，单元格是行的子元素，但不是列的，所以它继承不到列的属性。&lt;/p&gt;
-&lt;p&gt;从更根本的角度说，是 CSS 的工作模式所决定的。页面的一切表现均交由 CSS 进行计算和渲染，而 CSS 的基本工作方式遵循下面的步骤：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;解析样式表和文档&lt;/li&gt;
-&lt;li&gt;对于文档中的每个元素：&lt;ol&gt;
-&lt;li&gt;决定应用哪个 CSS 规则。&lt;/li&gt;
-&lt;li&gt;使用这些规则做出 CSS 级联。&lt;/li&gt;
-&lt;li&gt;如果级联的结果是关键字“继承”（或继承的属性没有规定值），则进行继承&lt;/li&gt;
-&lt;li&gt;执行计算（把’em’变成’px’等等）。在 CSS 2.1 中，&lt;code&gt;getComputedStyle()&lt;/code&gt;DOM方法负责返回这些值。&lt;br&gt;此时，每个元素的所有属性都会有一个值。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;排列文档版式&lt;/li&gt;
-&lt;li&gt;绘制文档&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;在这样的工作顺序下，因为列元素是&lt;code&gt;display:table-column&lt;/code&gt;，而单元格元素是&lt;code&gt;display:table-cell&lt;/code&gt;，他们之间的具体关系要到第三步才能确认，因为你需要计算某一个单元格横跨几列或几行，才能确定某一个单元格到底是第几列。而在那之前，也就是第二步的时候，每个元素的属性值都已经计算出来了！但你还不知道哪个单元是第几列，所以你没办法知道该列的值。&lt;/p&gt;
-&lt;p&gt;然后我做了一个很无聊的DEMO，使用上面说到的 CSS 3 选择器，选择所有偶数列的单元格，变成蓝色；而让所有第三列的单元格变成黄色。然后分别对 n 行 n 列的单元格进行合并操作（也就是第一行的第一个单元格占据3个单元格的，第二行的第二个单元格占据3个单元格，以此类推）。结果如下：&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;&lt;p data-height=&quot;268&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;EajVXx&quot; data-default-tab=&quot;result&quot; data-user=&quot;hikarievo&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/hikarievo/pen/EajVXx/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;EajVXx&lt;/a&gt; by hikarievo (&lt;a href=&quot;http://codepen.io/hikarievo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;@hikarievo&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
-&lt;script async src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;因为对单元格进行了列合并，而那个选择器的本质又是按照行而非列选择的，结果就变成上面那样了（没能在视觉上垂直渲染某一列）。&lt;/p&gt;
-&lt;p&gt;话虽这么说，但在脱离了表格布局那么多年的今天，在表格终于能够回归它本来的应用目的的今天，这种奇葩布局的表格应该也是寥寥无几了。&lt;/p&gt;
-&lt;p&gt;##参考文章&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://ln.hixie.ch/?start=1070385285&amp;amp;count=1&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;The mystery of why only four properties apply to table columns&lt;/a&gt;：本文主要思路来源&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.w3.org/TR/CSS2/tables.html#columns&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;W3C CSS 2.1规范-列&lt;/a&gt;：CSS 2.1中对列元素属性的规范&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://w3help.org/zh-cn/causes/HE1004&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;W3help HE1004&lt;/a&gt;：该问题描述及涉及浏览器版本&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在&lt;code&gt;table&lt;/code&gt;表格元素中，有一个&lt;code&gt;col&lt;/code&gt;元素（它还有一个孪生胞兄&lt;code&gt;colgroup&lt;/code&gt;元素），在 W3C 标准中，这个元素被称为列元素，用于定义表格中的某些列中的表现形式，在现行及常见的教程中，认为col元素可以使用常见的全局属性，以及&lt;code&gt;align&lt;/code&gt;、&lt;code&gt;valign&lt;/code&gt;、&lt;code&gt;width&lt;/code&gt;等属性（乃至&lt;a href=&quot;http://www.w3.org/TR/html401/struct/tables.html#h-11.2.4&quot;&gt;HTML 4.1&lt;/a&gt; 及 &lt;a href=&quot;http://www.w3.org/TR/html5/tabular-data.html#the-col-element&quot;&gt;5.0 规范文档&lt;/a&gt;中，也同意该元素可以使用全局属性），很多DEMO也用它来举例说明如何让表格中的某列居中对齐、右对齐或改变某列的文字颜色，而事实上在大家常年的实践中，已经证明了一个很恐怖的事情…&lt;code&gt;align&lt;/code&gt;也好&lt;code&gt;valign&lt;/code&gt;也罢，甚至连全局属性中的&lt;code&gt;color&lt;/code&gt;属性都完全不起作用，这到底是发生了什么事。&lt;/p&gt;
-&lt;p&gt;照例先上结论：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;在 CSS 2 中，列元素就仅能使用&lt;code&gt;border&lt;/code&gt;、&lt;code&gt;background&lt;/code&gt;、&lt;code&gt;width&lt;/code&gt;及&lt;code&gt;visibility&lt;/code&gt;这四个属性，其它属性（如对齐及字色都无法生效）。&lt;/li&gt;
-&lt;li&gt;IE6、IE7及IE8(Q)遵循常见教程，可以使用各种对齐和文字相关设置。&lt;/li&gt;
-&lt;li&gt;IE9开始及现在所有常用非IE浏览器均支持&lt;code&gt;:nth-child(n)&lt;/code&gt;选择器，可以用该选择器实现列选择，并支持所有全局 CSS 属性。&lt;/li&gt;
-&lt;li&gt;IE8(S)无解（因为它不支持上述选择器），除第一条所描述的 4 个 CSS 属性之外，无法统一改变列的对齐及字色。&lt;/li&gt;
-&lt;li&gt;而&lt;code&gt;col&lt;/code&gt;及&lt;code&gt;colgroup&lt;/code&gt;元素，除了对IE6、7、8进行兼容之外，已经没用了。&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="CSS" scheme="http://hikarievo.me/tags/CSS/"/>
-    
-      <category term="HTML" scheme="http://hikarievo.me/tags/HTML/"/>
     
   </entry>
   
