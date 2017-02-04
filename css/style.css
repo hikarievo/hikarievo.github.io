@@ -140,6 +140,9 @@ body {
 .outer:after {
   clear: both;
 }
+#main {
+  margin: 0 -20px;
+}
 .inner {
   display: inline;
   float: left;
